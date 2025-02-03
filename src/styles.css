@@ -1,0 +1,87 @@
+/* General Styles */
+body {
+  max-width: 1800px;
+  font-family: 'Roboto Mono', sans-serif;
+  margin: auto;
+  padding: 0;
+  text-align: center;
+}
+
+/* Light & Dark Mode */
+.light {
+  background-color: #f0f0f0;
+  color: #222;
+}
+
+.dark {
+  background-color: #121212;
+  color: white;
+}
+
+/* Education */
+.education-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.education-card {
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.education-card:hover {
+  background: #f5a623;
+  color: black;
+  transform: scale(1.05);
+}
+
+/* Skills */
+.skills-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.skill-card {
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  width: 180px;
+  text-align: center;
+}
+
+.skill-card:hover {
+  background: #f5a623;
+  color: black;
+  transform: scale(1.05);
+}
+
+/* Languages */
+.languages-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.language-card {
+  background: #222;
+  padding: 15px;
+  border-radius: 10px;
+  width: 150px;
+}
+
+.level {
+  display: block;
+  height: 8px;
+  background: gray;
+  border-radius: 5px;
+}
+
+.level.full { width: 100%; background: #f5a623; }
+.level.high { width: 80%; background: #f5a623; }
+.level.medium { width: 60%; background: #f5a623; }
