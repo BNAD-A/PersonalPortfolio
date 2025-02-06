@@ -1,16 +1,202 @@
-/* General Styles */
+/* 🌍 Global Styles */
 body {
-  max-width: 1800px;
-  font-family: 'Roboto Mono', sans-serif;
-  margin: auto;
+  font-family: "Roboto Mono", serif;
+  margin: 0;
   padding: 0;
   text-align: center;
+  transition: background 0.3s, color 0.3s;
+  scroll-behavior: smooth;
 }
 
-/* Light & Dark Mode */
+/* 🔘 Mode clair */
 .light {
-  background-color: #f0f0f0;
-  color: #222;
+  background-color: #f9f9f9;
+  color: black;
+}
+
+/* 🌑 Mode sombre */
+.dark {
+  background-color: #121212;
+  color: white;
+}
+
+/* 🎭 Barre latérale */
+.sidebar {
+  width: 220px;
+  background: white;
+  padding: 20px;
+  padding-top: 50px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Mode sombre pour la sidebar */
+.dark .sidebar {
+  background: #1f1f1f;
+  color: white;
+}
+
+/* 🌗 Bouton Mode Sombre/Clair */
+.toggle-theme {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+}
+
+.toggle-theme:hover {
+  background: #bca3ac;
+}
+
+/* Mode sombre */
+.dark .toggle-theme {
+  background: #444;
+  color: white;
+}
+
+/* 🌟 Barre latérale droite fixe et stylisée */
+.right-sidebar {
+  position: fixed;
+  top: 50%;
+  right: 20px; /* Toujours visible */
+  transform: translateY(-50%);
+  width: 60px; /* Barre plus étroite */
+  background: white;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  font-family: "Delius Swash Caps", serif;
+}
+
+.right-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right-sidebar ul li {
+  margin-bottom: 15px;
+}
+
+.right-sidebar ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  background: #f8f9fa;
+  border-radius: 30%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+  font-size: 10px;
+  color: #d0ada7;
+}
+
+.right-sidebar ul li a:hover {
+  background: #6c4157;
+  color: white;
+}
+
+/* Icônes ajustées */
+.right-sidebar ul li a i {
+  font-size: 10px;
+  color: #6c4157;
+  transition: color 0.3s;
+}
+
+.right-sidebar ul li a:hover i {
+  color: white;
+}
+
+/* 🌟 Icônes des réseaux sociaux */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.social-links a {
+  display: inline-block;
+  transition: transform 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+  transform: scale(1.2);
+}
+
+/* Ajustement de la taille des icônes */
+.social-icon {
+  width: 30px;
+  height: 30px;
+  transition: opacity 0.3s, filter 0.3s;
+}
+
+.social-icon:hover {
+  opacity: 0.7;
+}
+
+/* Mode sombre : Ajuste les icônes si besoin */
+.dark .social-icon {
+  filter: brightness(1.2); /* Rend les icônes plus visibles */
+}
+
+/* 🌟 Liens de contact */
+.contact-link {
+  text-decoration: none;
+  color: inherit; /* Utilise la couleur du texte du thème */
+  transition: color 0.3s ease-in-out;
+}
+
+.contact-link:hover {
+  color: #5d2e46; /* Bleu interactif au survol */
+  text-decoration: none;
+}
+
+.download-btn {
+  text-decoration: none;
+  color: black;
+}
+
+.download-btn:hover{
+  color: #5d2e46;
+}
+
+
+body .dark .download-btn {
+  color: white;
+} 
+
+body .dark .download-btn:hover {
+  color: #5d2e46;
+} 
+
+
+/* 🌍 Global Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  transition: background 0.3s, color 0.3s;
+  scroll-behavior: smooth; /* Permet le défilement fluide */
+}
+
+/* 🔘 Mode clair et sombre */
+.light {
+  background-color: #f9f9f9;
+  color: black;
 }
 
 .dark {
@@ -18,70 +204,318 @@ body {
   color: white;
 }
 
-/* Education */
-.education-container {
+/* 🎭 Barre latérale fixe */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* ✅ Navigation interne */
+.nav-sidebar {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+  width: 100%;
 }
 
-.education-card {
-  background: #222;
-  padding: 20px;
-  border-radius: 10px;
-  width: 300px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.education-card:hover {
-  background: #f5a623;
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  text-decoration: none;
   color: black;
-  transform: scale(1.05);
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out;
+  cursor: pointer;
 }
 
-/* Skills */
-.skills-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+.nav-item:hover {
+  background: #bca3ac;
+  color: white;
 }
 
-.skill-card {
-  background: #222;
-  padding: 20px;
-  border-radius: 10px;
-  width: 180px;
+/* 📌 Fixe la position du contenu principal */
+.main-content {
+  margin-left: 280px;
+  margin-right: 120px;
+  padding: 40px;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+/* 📱 Responsive pour mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .toggle-sidebar {
+    display: block;
+  }
+}
+
+/* 🌟 Section "À propos de moi" */
+.about-section {
+  max-width: 1000px;
+  margin: 50px auto;
   text-align: center;
 }
 
-.skill-card:hover {
-  background: #f5a623;
-  color: black;
-  transform: scale(1.05);
+.about-section h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #f8f9fa;
 }
 
-/* Languages */
-.languages-container {
+.about-box {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  font-size: 16px;
+  color: #2c3e50;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+body.light .about-section h2{
+  color: black;
+}
+
+
+/* 🏫 Section Éducation */
+.education-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+.education-box {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+  background-color: #ede1d8;
+}
+
+.education-box:hover {
+  transform: translateY(-5px);
+}
+
+.education-box h3 {
+  font-size: 18px;
+  color: #5d2e46;
+}
+
+.education-box p {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.education-box span {
+  font-size: 14px;
+  color: gray;
+}
+
+/* 🏆 Section Projets */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: white; /* Fond par défaut (clair) */
+  color: black; /* Texte par défaut */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ✅ Ajout des styles pour le thème sombre */
+body.dark .project-card { 
+  color: black; /* Texte clair */
+}
+
+
+body.dark .project-card:hover {
+  background: #e8d6cb; /* Fond légèrement plus clair au survol */
+}
+
+
+body.light .project-card:hover {
+  background: #e8d6cb; /* Fond légèrement plus clair au survol */
+}
+
+/* 🎯 Section Compétences */
+.skills-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
 }
 
-.language-card {
-  background: #222;
+.skill-box {
+  background: white;
   padding: 15px;
   border-radius: 10px;
-  width: 150px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 250px;
+  color: #5d2e46;
+  background-color: #ede1d8;
 }
 
-.level {
-  display: block;
-  height: 8px;
-  background: gray;
+.skill-box:hover {
+  transform: translateY(-5px);
+}
+
+
+/* 🌟 Section Soft Skills */
+.soft-skills-section {
+  max-width: 900px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.soft-skills-section h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #f8f9fa;
+}
+
+/* Conteneur des Soft Skills */
+.soft-skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Boîtes de Soft Skills */
+.soft-skill-box {
+  background: #f8f9fa;
+  width: 180px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.soft-skill-box:hover {
+  transform: translateY(-5px);
+  background-color: #e8d6cb;
+}
+
+/* Icônes dans les Soft Skills */
+.soft-skill-box i {
+  font-size: 30px;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.soft-skill-box h3 {
+  font-size: 18px;
+  color: #bca3ac;
+  margin-bottom: 10px;
+}
+
+.soft-skill-box p {
+  font-size: 14px;
+  color: #555;
+}
+
+body.light .soft-skills-section h2{
+  color: black;
+}
+
+/* 💡 Section Langues */
+.languages-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.language-box {
+  background: #ede1d8;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 250px;
+}
+
+.language-box h3 {
+  font-size: 18px;
+  color: #bca3ac;
+  margin-bottom: 5px;
+}
+
+.language-box p {
+  color: #5d2e46;
+  font-style: italic;
+}
+
+
+/* 📊 Barres de progression */
+.progress-bar {
+  width: 100%;
+  background: #ddd;
   border-radius: 5px;
+  height: 8px;
+  position: relative;
+  overflow: hidden;
 }
 
-.level.full { width: 100%; background: #f5a623; }
-.level.high { width: 80%; background: #f5a623; }
-.level.medium { width: 60%; background: #f5a623; }
+.progress {
+  height: 100%;
+  background: #5d2e46;
+  border-radius: 5px;
+  transition: width 1s ease-in-out;
+}
+
+
+h1, h2 {
+    font-family: "Delius Swash Caps", serif;
+    font-weight: 400;
+    font-style: normal;
+}

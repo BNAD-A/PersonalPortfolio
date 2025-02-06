@@ -1,71 +1,233 @@
 import React, { useState, useEffect } from "react";
-import profileImage from "./assets/photoCV.jpg";
-import { FaLinkedin, FaGithub, FaEnvelope, FaPhone, FaGraduationCap, FaUsers, FaLightbulb, FaProjectDiagram, FaLanguage, FaBrain, FaDatabase, FaHeartbeat, FaSun, FaMoon, FaCogs } from "react-icons/fa";
+import profileImage from "./assets/photoCV.jpg"; // Photo de profil
+import linkedinLight from "./assets/linkedin-light.png"; // Icône LinkedIn mode clair
+import linkedinDark from "./assets/linkedin-dark.png"; // Icône LinkedIn mode sombre
+import githubLight from "./assets/github-light.png"; // Icône GitHub mode clair
+import githubDark from "./assets/github-dark.png"; // Icône GitHub mode sombre
 import "./styles.css";
-import "./script.js";
+
 
 const Portfolio = () => {
-  const [mode, setMode] = useState(localStorage.getItem("theme") || "light");
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   useEffect(() => {
     document.body.classList.remove("light", "dark");
-    document.body.classList.add(mode);
-    localStorage.setItem("theme", mode);
-  }, [mode]);
+    document.body.classList.add(theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
-  const toggleMode = () => {
-    setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
   };
 
   return (
-    <div className={`container ${mode} center-content`}>
-      <header className="header text-center">
-        <div className="mode-toggle" onClick={toggleMode}>
-          {mode === "light" ? <FaMoon className="icon" /> : <FaSun className="icon" />}
-        </div>
+    <div className={`container ${theme}`}>
+      {/* 🌗 Bouton Mode Sombre/Clair */}
+      <button className="toggle-theme" onClick={toggleTheme}>
+        {theme === "light" ? "🌙" : "☀️"}
+      </button>
+
+      {/* 📌 Sidebar à gauche */}
+      <div className="sidebar">
         <img src={profileImage} alt="Nada Benchaou" className="profile-img" />
-        <h1 className="title">BENCHAOU Nada</h1>
-        <p className="subtitle">Future Ingénieure en Santé Digitale | À la Recherche d’un Stage</p>
-        <p className="contact-info">📞 +212 6 82 29 11 14 | 📍 Casablanca, MA | ✉ bnadabenchaou@gmail.com</p>
-      </header>
-
-      <section className="education text-center">
-        <h2><FaGraduationCap /> Éducation</h2>
-        <div className="education-container">
-          <div className="education-card">
-            <h3>2ème année Ingénieur en Digital de Santé</h3>
-            <p>École Supérieure Mohammed VI - Casablanca, Maroc (2023-2025)</p>
-          </div>
-          <div className="education-card">
-            <h3>Classes Préparatoires en Génie Biomédical</h3>
-            <p>École Supérieure Mohammed VI - Casablanca, Maroc (2021-2023)</p>
-          </div>
-          <div className="education-card">
-            <h3>Première Année d'Architecture</h3>
-            <p>Universidad de Granada - Espagne (2020-2021)</p>
-          </div>
+        <h1>Nada Benchaou</h1>
+        <p>Futur Ingénieure en Santé Digitale</p>
+        <div className="contact-info">
+        <a href="tel:+212682291114" className="contact-link">
+        📞 +212 6 82 29 11 14
+        </a>
+        <p>
+        <a href="mailto:bnadabenchaou@gmail.com" className="contact-link">
+          ✉ bnadabenchaou@gmail.com
+        </a>
+        </p>
+          <p>📍 Casablanca, Maroc</p>
         </div>
-      </section>
-
-      <section className="skills text-center">
-        <h2><FaLightbulb /> Compétences</h2>
-        <div className="skills-container">
-          <div className="skill-card"><FaBrain /><p>Intelligence Artificielle</p></div>
-          <div className="skill-card"><FaCogs /><p>Programmation (Python, C, C++)</p></div>
-          <div className="skill-card"><FaDatabase /><p>Base de Données (SQL, Firebase)</p></div>
-          <div className="skill-card"><FaHeartbeat /><p>IoT & Systèmes Embarqués</p></div>
+        {/* Icônes sociales avec images */}
+        <div className="social-links">
+          <a href="https://www.linkedin.com/in/nada-benchaou-105514253/" target="_blank" rel="noopener noreferrer">
+            <img src={theme === "light" ? linkedinLight : linkedinDark} alt="LinkedIn" className="social-icon" />
+          </a>
+          <a href="https://github.com/BNAD-A" target="_blank" rel="noopener noreferrer">
+            <img src={theme === "light" ? githubDark : githubLight} alt="GitHub" className="social-icon" />
+          </a>
         </div>
-      </section>
 
-      <section className="languages text-center">
-        <h2><FaLanguage /> Langues</h2>
-        <div className="languages-container">
-          <div className="language-card"><p>🇦🇪 Arabe</p><span className="level full"></span></div>
-          <div className="language-card"><p>🇫🇷 Français</p><span className="level high"></span></div>
-          <div className="language-card"><p>🇬🇧 Anglais</p><span className="level medium"></span></div>
-          <div className="language-card"><p>🇪🇸 Espagnol</p><span className="level medium"></span></div>
-        </div>
-      </section>
+
+        <a href="/BENCHAOU_Nada_CV.pdf" download className="download-btn">📥 Télécharger CV</a>
+      </div>
+
+
+      {/* 📌 Barre latérale droite fixe (menu compact avec icônes) */}
+      <div className="right-sidebar">
+        <ul>
+          <li><a href="#about"><i className="fas fa-user"></i> À propos</a></li>
+          <li><a href="#resume"><i className="fas fa-graduation-cap"></i> Éducation</a></li>
+          <li><a href="#projects"><i className="fas fa-folder-open"></i> Projets</a></li>
+          <li><a href="#skills"><i className="fas fa-cogs"></i> Hard Skills</a></li>
+          <li><a href="#soft-skills"><i className="fas fa-brain"></i> Soft Skills</a></li>
+          <li><a href="#languages"><i className="fas fa-language"></i> Langues</a></li>
+        </ul>
+      </div>
+
+
+
+      {/* Contenu Principal */}
+      <div className="main-content">
+        {/* 📌 Section "À propos de moi" */}
+        <section id="about" className="about-section">
+          <h2>👤À propos de moi</h2>
+          <div className="about-box">
+            <p>
+              Étudiante en deuxième année de cycle d’ingénieur en digital de santé, passionnée par les synergies entre technologie et santé.
+              <br />
+              Curieuse et motivée, je souhaite acquérir une expérience pratique et contribuer au développement de solutions digitales
+              innovantes dans le secteur de la santé.
+            </p>
+          </div>
+        </section>
+        {/* Section Éducation */}
+        <section id="resume" className="education">
+          <h2>🎓 Éducation</h2>
+          <div className="education-container">
+            {[
+              { year: "2023 - 2026", title: "2ÈME ANNÉE CYCLE D’INGÉNIEUR EN DIGITAL DE SANTÉ", place: "École Supérieure Mohammed VI d’Ingénieurs en Sciences de la Santé" },
+              { year: "2021 - 2023", title: "CLASSES PRÉPARATOIRES EN GÉNIE BIOMÉDICAL", place: "École Supérieure Mohammed VI d’Ingénieurs en Sciences de la Santé" },
+              { year: "2020 - 2021", title: "PREMIÈRE ANNÉE D'ARCHITECTURE", place: "Universidad de Granada - Espagne" },
+              { year: "2019 - 2020", title: "EQUIVALENT BACCALAURÉAT SCIENTIFIQUE ESPAGNOL", place: "Selectividad - Espagne" },
+              { year: "2018 - 2019", title: "BACCALAURÉAT SCIENTIFIQUE", place: "Lycée Omar Ibn AbdelAziz - Oujda Maroc" },
+            ].map((edu, index) => (
+              <div className="education-box" key={index}>
+                <h3>{edu.year}</h3>
+                <p>{edu.title}</p>
+                <span>{edu.place}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Section Projets */}
+        <section id="projects" className="projects">
+          <h2>🚀 Projets</h2>
+          <div className="projects-container">
+            {[
+              {
+                title: "AI Mental Health Chatbot",
+                date: "Oct 2024 — Déc 2024",
+                details: [
+                  "Développement d’un chatbot de santé mentale basé sur l’IA.",
+                  "Implémentation de la reconnaissance des émotions et apprentissage par renforcement.",
+                  "Création d’une base de données d’intentions et de réponses.",
+                  "Collaboration avec une équipe de 3 étudiants ingénieurs."
+                ]
+              },
+              {
+                title: "Breast Cancer Data Analysis",
+                date: "Oct 2024 — Déc 2024",
+                details: [
+                  "Analyse de données médicales et classification des tumeurs mammaires.",
+                  "Application de techniques avancées de Data Mining.",
+                  "Développement de modèles de Machine Learning.",
+                  "Visualisation des résultats pour l’interprétation médicale."
+                ]
+              },
+              {
+                title: "IoT Multiparametric Health Monitor",
+                date: "Oct 2024 — Déc 2024",
+                details: [
+                  "Développement d’un système IoT pour la surveillance de santé.",
+                  "Intégration de capteurs (température, fréquence cardiaque, SpO2).",
+                  "Développement d’une interface mobile et web avec Blynk.",
+                  "Implémentation de la connectivité Wi-Fi/Bluetooth."
+                ]
+              },
+                    {
+        title: "CV Portfolio",
+        date: "Fév 2025",
+        details: [
+          "Développement de mon portfolio personnel en React.js.",
+          "Mise en place d’un mode sombre et d’un design interactif.",
+          "Ajout d’animations et d’une barre de navigation dynamique.",
+          "Hébergement du site sur Vercel avec un déploiement continu."
+        ]
+      }
+            ].map((proj, index) => (
+              <div className="project-card" key={index}>
+                <h3>{proj.title}</h3>
+                <p><strong>{proj.date}</strong></p>
+                <ul>
+                  {proj.details.map((detail, i) => <li key={i}>{detail}</li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Section Compétences */}
+        <section id="skills" className="skills">
+          <h2>💡 Hard Skills </h2>
+          <div className="skills-container">
+            {["Data Science  AI, ML, Data Mining", "Langage de programmation  Python, C, C++, MATLAB, PHP", "Data Base  MySQL, SQL, Firebase", "Developpement WEB  HTML, CSS, JavaScript", "Cloud Computing  Docker, AWS", "Systèmes embarqués et IoT  Arduino, Raspberry Pi", "Office 365"].map((skill, index) => (
+              <div className="skill-box" key={index}>
+                <h4>{skill.split("  ")[0]}</h4>
+                <p>{skill.split("  ")[1]}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+        {/* 📌 Section Soft Skills */}
+        <section id="soft-skills" className="soft-skills-section">
+          <h2>🎯 Soft Skills</h2>
+          <div className="soft-skills-container">
+            <div className="soft-skill-box">
+              <i className="fas fa-lightbulb"></i>
+              <h3>Créativité</h3>
+              <p>Capacité à innover et à proposer des solutions originales.</p>
+            </div>
+            <div className="soft-skill-box">
+              <i className="fas fa-users"></i>
+              <h3>Travail d'équipe</h3>
+              <p>Bonne collaboration avec des équipes multidisciplinaires.</p>
+            </div>
+            <div className="soft-skill-box">
+              <i className="fas fa-comments"></i>
+              <h3>Communication</h3>
+              <p>Capacité à exprimer des idées de manière claire et efficace.</p>
+            </div>
+            <div className="soft-skill-box">
+              <i className="fas fa-clock"></i>
+              <h3>Gestion du temps</h3>
+              <p>Priorisation efficace des tâches et respect des délais.</p>
+            </div>
+            <div className="soft-skill-box">
+              <i className="fas fa-cogs"></i>
+              <h3>Résolution de problèmes</h3>
+              <p>Approche analytique pour trouver des solutions optimales.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Section Langues */}
+        <section id="languages" className="languages">
+          <h2>🌍 Langues</h2>
+          <div className="languages-container">
+            {[
+              { name: "🇲🇦 Arabe", level: "Langue maternelle", width: "100%" },
+              { name: "🇫🇷 Français", level: "Courant", width: "85%" },
+              { name: "🇬🇧 Anglais", level: "Intermédiaire avancé", width: "75%" },
+              { name: "🇪🇸 Espagnol", level: "Intermédiaire", width: "50%" },
+              { name: "🇩🇪 Allemand", level: "Notion de base", width: "25%" }
+            ].map((lang, index) => (
+              <div className="language-box" key={index}>
+                <h3>{lang.name}</h3>
+                <p>{lang.level}</p>
+                <div className="progress-bar"><div className="progress" style={{ width: lang.width }}></div></div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+      </div>
     </div>
   );
 };
