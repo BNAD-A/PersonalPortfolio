@@ -9,6 +9,7 @@ import "./styles.css";
 
 const Portfolio = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     document.body.classList.remove("light", "dark");
@@ -20,30 +21,38 @@ const Portfolio = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <div className={`container ${theme}`}>
+      {/* 🌗 Bouton pour le mode sombre/clair */}
       {/* 🌗 Bouton Mode Sombre/Clair */}
       <button className="toggle-theme" onClick={toggleTheme}>
         {theme === "light" ? "🌙" : "☀️"}
       </button>
 
-      {/* 📌 Sidebar à gauche */}
-      <div className="sidebar">
-        <img src={profileImage} alt="Nada Benchaou" className="profile-img" />
+      {/* 📌 Bouton Sidebar Mobile */}
+      <button className="toggle-sidebar-mobile" onClick={toggleSidebar}>
+        {isSidebarOpen ? "✖" : "☰ Contact"}
+      </button>
+
+
+      {/* 📌 Sidebar gauche */}
+      <div className={`sidebar ${isSidebarOpen ? "expanded" : ""}`}>
+        <img src={profileImage} alt="Benchaou Nada" className="profile-img" />
         <h1>Nada Benchaou</h1>
         <p>Futur Ingénieure en Santé Digitale</p>
         <div className="contact-info">
-        <a href="tel:+212682291114" className="contact-link">
-        📞 +212 6 82 29 11 14
-        </a>
-        <p>
-        <a href="mailto:bnadabenchaou@gmail.com" className="contact-link">
-          ✉ bnadabenchaou@gmail.com
-        </a>
-        </p>
+          <a href="tel:+212682291114" className="contact-link">📞 +212 6 82 29 11 14</a>
+          <p>
+            <a href="mailto:bnadabenchaou@gmail.com" className="contact-link">
+              ✉ bnadabenchaou@gmail.com
+            </a>
+          </p>
           <p>📍 Casablanca, Maroc</p>
         </div>
-        {/* Icônes sociales avec images */}
         <div className="social-links">
           <a href="https://www.linkedin.com/in/nada-benchaou-105514253/" target="_blank" rel="noopener noreferrer">
             <img src={theme === "light" ? linkedinLight : linkedinDark} alt="LinkedIn" className="social-icon" />
@@ -52,14 +61,11 @@ const Portfolio = () => {
             <img src={theme === "light" ? githubDark : githubLight} alt="GitHub" className="social-icon" />
           </a>
         </div>
-
-
-        <a href="/BENCHAOU_Nada_CV.pdf" download className="download-btn">📥 Télécharger CV</a>
+        <a href="/BENCHAOU-CV.pdf" download className="download-btn">📥 Télécharger CV</a>
       </div>
 
-
       {/* 📌 Barre latérale droite fixe (menu compact avec icônes) */}
-      <div className="right-sidebar">
+      <div className={`right-sidebar ${isSidebarOpen ? "hidden" : ""}`}>
         <ul>
           <li><a href="#about"><i className="fas fa-user"></i> À propos</a></li>
           <li><a href="#resume"><i className="fas fa-graduation-cap"></i> Éducation</a></li>
@@ -70,8 +76,6 @@ const Portfolio = () => {
         </ul>
       </div>
 
-
-
       {/* Contenu Principal */}
       <div className="main-content">
         {/* 📌 Section "À propos de moi" */}
@@ -79,10 +83,11 @@ const Portfolio = () => {
           <h2>👤À propos de moi</h2>
           <div className="about-box">
             <p>
-              Étudiante en deuxième année de cycle d’ingénieur en digital de santé, passionnée par les synergies entre technologie et santé.
-              <br />
-              Curieuse et motivée, je souhaite acquérir une expérience pratique et contribuer au développement de solutions digitales
-              innovantes dans le secteur de la santé.
+            Étudiante en deuxième année de cycle d’ingénieur en digital de santé, je suis profondément inspirée par les opportunités 
+            qu’offrent les technologies émergentes. Mon parcours me permet d’explorer non seulement les innovations numériques qui 
+            transforment le secteur médical, mais aussi toute forme de progrès technologique qui repousse les limites de ce qui est possible. 
+            Toujours curieuse et motivée, je cherche à participer à des projets pionniers qui façonnent l’avenir, en particulier dans les 
+            domaines où santé et innovation s’entrecroisent. 
             </p>
           </div>
         </section>
@@ -147,7 +152,6 @@ const Portfolio = () => {
         details: [
           "Développement de mon portfolio personnel en React.js.",
           "Mise en place d’un mode sombre et d’un design interactif.",
-          "Ajout d’animations et d’une barre de navigation dynamique.",
           "Hébergement du site sur Vercel avec un déploiement continu."
         ]
       }
@@ -212,11 +216,11 @@ const Portfolio = () => {
           <h2>🌍 Langues</h2>
           <div className="languages-container">
             {[
-              { name: "🇲🇦 Arabe", level: "Langue maternelle", width: "100%" },
-              { name: "🇫🇷 Français", level: "Courant", width: "85%" },
-              { name: "🇬🇧 Anglais", level: "Intermédiaire avancé", width: "75%" },
-              { name: "🇪🇸 Espagnol", level: "Intermédiaire", width: "50%" },
-              { name: "🇩🇪 Allemand", level: "Notion de base", width: "25%" }
+              { name: "Arabe", level: "Langue maternelle", width: "100%" },
+              { name: "Français", level: "Courant", width: "85%" },
+              { name: "Anglais", level: "Intermédiaire avancé", width: "75%" },
+              { name: "Espagnol", level: "Intermédiaire", width: "50%" },
+              { name: "Allemand", level: "Notion de base", width: "25%" }
             ].map((lang, index) => (
               <div className="language-box" key={index}>
                 <h3>{lang.name}</h3>
