@@ -616,3 +616,21 @@ h1, h2 {
 body.light .about-section h2{
   color: black;
 }
+
+/* Flexbox to align title left and GitHub icon right */
+.project-header {
+  display: flex;
+  justify-content: space-between; /* Pushes elements to opposite sides */
+  align-items: center;
+}
+
+/* GitHub Icon Styling */
+.github-icon img {
+  width: 24px; /* Adjust size */
+  height: 24px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.github-icon:hover img {
+  transform: scale(1.1); /* Slight zoom effect */
+}

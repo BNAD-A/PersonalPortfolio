@@ -111,7 +111,6 @@ const Portfolio = () => {
           </div>
         </section>
 
-        {/* Section Projets */}
         <section id="projects" className="projects">
           <h2>🚀 Projets</h2>
           <div className="projects-container">
@@ -124,7 +123,8 @@ const Portfolio = () => {
                   "Implémentation de la reconnaissance des émotions et apprentissage par renforcement.",
                   "Création d’une base de données d’intentions et de réponses.",
                   "Collaboration avec une équipe de 3 étudiants ingénieurs."
-                ]
+                ],
+                githubLink: "https://github.com/BNAD-A/ChatWell_Bot"
               },
               {
                 title: "Breast Cancer Data Analysis",
@@ -134,7 +134,8 @@ const Portfolio = () => {
                   "Application de techniques avancées de Data Mining.",
                   "Développement de modèles de Machine Learning.",
                   "Visualisation des résultats pour l’interprétation médicale."
-                ]
+                ],
+                githubLink: "https://github.com/BNAD-A/BreastCancerAnalysis"
               },
               {
                 title: "IoT Multiparametric Health Monitor",
@@ -144,20 +145,28 @@ const Portfolio = () => {
                   "Intégration de capteurs (température, fréquence cardiaque, SpO2).",
                   "Développement d’une interface mobile et web avec Blynk.",
                   "Implémentation de la connectivité Wi-Fi/Bluetooth."
-                ]
+                ],
+                githubLink: "https://github.com/BNAD-A/MultiParametric-Monitor-"
               },
-                    {
-        title: "CV Portfolio",
-        date: "Fév 2025",
-        details: [
-          "Développement de mon portfolio personnel en React.js.",
-          "Mise en place d’un mode sombre et d’un design interactif.",
-          "Hébergement du site sur Vercel avec un déploiement continu."
-        ]
-      }
+              {
+                title: "CV Portfolio",
+                date: "Fév 2025",
+                details: [
+                  "Développement de mon portfolio personnel en React.js.",
+                  "Mise en place d’un mode sombre et d’un design interactif.",
+                  "Hébergement du site sur Vercel avec un déploiement continu."
+                ],
+                githubLink: "https://github.com/BNAD-A/PersonalPortfolio"
+              }
             ].map((proj, index) => (
               <div className="project-card" key={index}>
-                <h3>{proj.title}</h3>
+                {/* Project Title with GitHub Icon Aligned Right */}
+                <div className="project-header">
+                  <h3>{proj.title}</h3>
+                  <a href={proj.githubLink} target="_blank" rel="noopener noreferrer" className="github-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" />
+                  </a>
+                </div>
                 <p><strong>{proj.date}</strong></p>
                 <ul>
                   {proj.details.map((detail, i) => <li key={i}>{detail}</li>)}
@@ -166,6 +175,7 @@ const Portfolio = () => {
             ))}
           </div>
         </section>
+
 
         {/* Section Compétences */}
         <section id="skills" className="skills">
