@@ -61,7 +61,7 @@ const Portfolio = () => {
             <img src={theme === "light" ? githubDark : githubLight} alt="GitHub" className="social-icon" />
           </a>
         </div>
-        <a href="/BENCHAOU-CV.pdf" download className="download-btn">📥 Télécharger CV</a>
+        <a href="/BENCHAOU Nada CV.pdf" download className="download-btn">📥 Télécharger CV</a>
       </div>
 
       {/* 📌 Barre latérale droite fixe (menu compact avec icônes) */}
