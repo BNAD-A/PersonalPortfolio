@@ -1,6 +1,7 @@
 # 🌟 Portfolio CV – Nada Benchaou  
 
-🎓 Digital Health Engineering student, crafting a space where my projects, ideas, and dreams come alive.  
+🎓 Digital Health Engineering student, crafting a space where my projects, ideas, and dreams come alive.
+
 This Portfolio is more than just an online CV… it’s an **interactive story** ✨.  
 
 ---
