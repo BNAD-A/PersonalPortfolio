@@ -6,19 +6,373 @@ import githubLight from "./assets/github-light.png"; // Icône GitHub mode clair
 import githubDark from "./assets/github-dark.png"; // Icône GitHub mode sombre
 import "./styles.css";
 
+// 🌍 Contenu multilingue
+const translations = {
+  fr: {
+    name: "Nada Benchaou",
+    title: "Futur Ingénieure en Santé Digitale",
+    location: "Casablanca, Maroc",
+    downloadCVFR: "📥 Télécharger CV (FR)",
+    downloadCVEN: "📥 Télécharger CV (EN)",
+    contact: "☰ Contact",
+    navigation: {
+      about: "À propos",
+      education: "Éducation",
+      // ✅ AJOUT
+      experience: "Expérience",
+      projects: "Projets",
+      skills: "Hard Skills",
+      softSkills: "Soft Skills",
+      languages: "Langues"
+    },
+    about: {
+      title: "👤À propos de moi",
+      content:
+        "Étudiante en troisième année de cycle d'ingénieur en digital de santé, je suis profondément inspirée par les opportunités qu'offrent les technologies émergentes. Mon parcours me permet d'explorer non seulement les innovations numériques qui transforment le secteur médical, mais aussi toute forme de progrès technologique qui repousse les limites de ce qui est possible. Toujours curieuse et motivée, je cherche à participer à des projets pionniers qui façonnent l'avenir, en particulier dans les domaines où santé et innovation s'entrecroisent."
+    },
+    education: {
+      title: "🎓 Éducation",
+      items: [
+        { year: "2023 - 2026", title: "3ÈME ANNÉE CYCLE D'INGÉNIEUR EN DIGITAL DE SANTÉ", place: "École Supérieure Mohammed VI d'Ingénieurs en Sciences de la Santé" },
+        { year: "2021 - 2023", title: "CLASSES PRÉPARATOIRES EN GÉNIE BIOMÉDICAL", place: "École Supérieure Mohammed VI d'Ingénieurs en Sciences de la Santé" },
+        { year: "2020 - 2021", title: "PREMIÈRE ANNÉE D'ARCHITECTURE", place: "Universidad de Granada - Espagne" },
+        { year: "2019 - 2020", title: "EQUIVALENT BACCALAURÉAT SCIENTIFIQUE ESPAGNOL", place: "Selectividad - Espagne" },
+        { year: "2018 - 2019", title: "BACCALAURÉAT SCIENTIFIQUE", place: "Lycée Omar Ibn AbdelAziz - Oujda Maroc" }
+      ]
+    },
+    // ✅ AJOUT : EXPÉRIENCE (2 stages)
+    experience: {
+      title: "💼 Expérience",
+      items: [
+        {
+          role: "Stagiaire Observatrice",
+          org: "CHU Oujda – Service Biomédical",
+          location: "Oujda, Maroc",
+          period: "Juil 2024",
+          bullets: [
+            "Tournée au bloc opératoire, autotests des respirateurs et maintenance d’équipements.",
+            "Visites des services de réanimation, néonatologie, radiologie.",
+            "Participation à l’installation d’une IRM et configuration en salle d’opération."
+          ],
+          tech: []
+        },
+        {
+          role: "Stagiaire Technique – IA & Systèmes d'Information",
+          org: "CHU Oujda – Service Informatique & SI",
+          location: "Oujda, Maroc",
+          period: "Juil — Août 2025",
+          bullets: [
+            "Développement d’un Système de Détection Automatique de Rétinopathie Diabétique basé sur le Deep Learning."
+          ],
+          tech: ["Python", "TensorFlow/Keras", "Pandas", "NumPy", "Git"]
+        }
+      ]
+    },
+    projects: {
+      title: "🚀 Projets",
+      items: [
+        {
+          title:
+            "Eklia – Assistant IA pour radiologues détection et rédaction automatique de rapports d'IRM cérébrales",
+          date: "Fév 2025 — Mai 2025",
+          details: [
+            "Classification & segmentation de tumeurs cérébrales.",
+            "Génération de rapports médicaux avec NLP & OCR.",
+            "Interface web avec visualisation, validation et édition des rapports."
+          ],
+          githubLink: "https://github.com/BNAD-A/Eklia"
+        },
+        {
+          title: "Skinia – Détection du Cancer de la Peau par IA",
+          date: "Fév 2025 — Avril 2025",
+          details: [
+            "Détection automatique de lésions cutanées via CNN.",
+            "Pipeline optimisé pour reconnaître plusieurs types (mélanome, nævus…).",
+            "Interface web pour analyse, suivi et orientation vers un dermatologue."
+          ],
+          githubLink: "https://github.com/BNAD-A/SkinCancer_Detection"
+        },
+        {
+          title: "DonSang – Plateforme de Matching Donneurs/Receveurs",
+          date: "Avril 2025 — Mai 2025",
+          details: [
+            "Base de données SQL des profils médicaux et géographiques des donneurs et receveurs.",
+            "Algorithme Python de matching par compatibilité et proximité.",
+            "Interface web double session : donneurs & professionnels de santé."
+          ],
+          githubLink: "https://github.com/BNAD-A/BloodMatching"
+        },
+        {
+          title: "AI Mental Health Chatbot",
+          date: "Oct 2024 — Déc 2024",
+          details: [
+            "Développement d'un chatbot de santé mentale basé sur l'IA.",
+            "Implémentation de la reconnaissance des émotions et apprentissage par renforcement.",
+            "Création d'une base de données d'intentions et de réponses.",
+            "Collaboration avec une équipe de 3 étudiants ingénieurs."
+          ],
+          githubLink: "https://github.com/BNAD-A/ChatWell_Bot"
+        },
+        {
+          title: "Breast Cancer Data Analysis",
+          date: "Oct 2024 — Déc 2024",
+          details: [
+            "Analyse de données médicales et classification des tumeurs mammaires.",
+            "Application de techniques avancées de Data Mining.",
+            "Développement de modèles de Machine Learning.",
+            "Visualisation des résultats pour l'interprétation médicale."
+          ],
+          githubLink: "https://github.com/BNAD-A/BreastCancerAnalysis"
+        },
+        {
+          title: "IoT Multiparametric Health Monitor",
+          date: "Oct 2024 — Déc 2024",
+          details: [
+            "Développement d'un système IoT pour la surveillance de santé.",
+            "Intégration de capteurs (température, fréquence cardiaque, SpO2).",
+            "Développement d'une interface mobile et web avec Blynk.",
+            "Implémentation de la connectivité Wi-Fi/Bluetooth."
+          ],
+          githubLink: "https://github.com/BNAD-A/MultiParametric-Monitor-"
+        },
+        {
+          title: "CV Portfolio",
+          date: "Fév 2025",
+          details: [
+            "Développement de mon portfolio personnel en React.js.",
+            "Mise en place d'un mode sombre et d'un design interactif.",
+            "Hébergement du site sur Vercel avec un déploiement continu."
+          ],
+          githubLink: "https://github.com/BNAD-A/PersonalPortfolio"
+        }
+      ]
+    },
+    skills: {
+      title: "💡 Hard Skills",
+      items: [
+        { category: "Data Science", skills: "AI, ML, Data Mining" },
+        { category: "Langage de programmation", skills: "Python, C, C++, MATLAB, PHP" },
+        { category: "Data Base", skills: "MySQL, SQL, Firebase" },
+        { category: "Developpement WEB", skills: "HTML, CSS, JavaScript" },
+        { category: "Cloud Computing", skills: "Docker, AWS" },
+        { category: "Systèmes embarqués et IoT", skills: "Arduino, Raspberry Pi" },
+        { category: "Office 365", skills: "" }
+      ]
+    },
+    softSkills: {
+      title: "🎯 Soft Skills",
+      items: [
+        { icon: "fas fa-lightbulb", title: "Créativité", description: "Capacité à innover et à proposer des solutions originales." },
+        { icon: "fas fa-users", title: "Travail d'équipe", description: "Bonne collaboration avec des équipes multidisciplinaires." },
+        { icon: "fas fa-comments", title: "Communication", description: "Capacité à exprimer des idées de manière claire et efficace." },
+        { icon: "fas fa-clock", title: "Gestion du temps", description: "Priorisation efficace des tâches et respect des délais." },
+        { icon: "fas fa-cogs", title: "Résolution de problèmes", description: "Approche analytique pour trouver des solutions optimales." }
+      ]
+    },
+    languageSkills: {
+      title: "🌍 Langues",
+      items: [
+        { name: "Arabe", level: "Langue maternelle", width: "100%" },
+        { name: "Français", level: "Courant", width: "85%" },
+        { name: "Anglais", level: "Intermédiaire avancé", width: "75%" },
+        { name: "Espagnol", level: "Intermédiaire", width: "50%" },
+        { name: "Allemand", level: "Notion de base", width: "25%" }
+      ]
+    }
+  },
+  en: {
+    name: "Nada Benchaou",
+    title: "Future Digital Health Engineer",
+    location: "Casablanca, Morocco",
+    downloadCVFR: "📥 Download CV (FR)",
+    downloadCVEN: "📥 Download CV (EN)",
+    contact: "☰ Contact",
+    navigation: {
+      about: "About",
+      education: "Education",
+      // ✅ ADD
+      experience: "Experience",
+      projects: "Projects",
+      skills: "Hard Skills",
+      softSkills: "Soft Skills",
+      languages: "Languages"
+    },
+    about: {
+      title: "👤About me",
+      content:
+        "Third-year student in digital health engineering, I am deeply inspired by the opportunities offered by emerging technologies. My journey allows me to explore not only the digital innovations that are transforming the medical sector, but also any form of technological progress that pushes the boundaries of what is possible. Always curious and motivated, I seek to participate in pioneering projects that shape the future, particularly in areas where health and innovation intersect."
+    },
+    education: {
+      title: "🎓 Education",
+      items: [
+        { year: "2023 - 2026", title: "3RD YEAR DIGITAL HEALTH ENGINEERING CYCLE", place: "Mohammed VI Higher School of Health Sciences Engineers" },
+        { year: "2021 - 2023", title: "PREPARATORY CLASSES IN BIOMEDICAL ENGINEERING", place: "Mohammed VI Higher School of Health Sciences Engineers" },
+        { year: "2020 - 2021", title: "FIRST YEAR OF ARCHITECTURE", place: "Universidad de Granada - Spain" },
+        { year: "2019 - 2020", title: "SPANISH SCIENTIFIC BACCALAUREATE EQUIVALENT", place: "Selectividad - Spain" },
+        { year: "2018 - 2019", title: "SCIENTIFIC BACCALAUREATE", place: "Omar Ibn AbdelAziz High School - Oujda Morocco" }
+      ]
+    },
+    // ✅ ADD : EXPERIENCE (2 internships)
+    experience: {
+      title: "💼 Experience",
+      items: [
+        {
+          role: "Observation Intern",
+          org: "CHU Oujda – Biomedical Department",
+          location: "Oujda, Morocco",
+          period: "Jul 2024",
+          bullets: [
+            "Operating room tour, ventilator self-tests and equipment maintenance.",
+            "Visits to ICU, neonatology and radiology departments.",
+            "Contributed to MRI installation and operating room configuration."
+          ],
+          tech: []
+        },
+        {
+          role: "Technical Intern – AI & Information Systems",
+          org: "CHU Oujda – IT & IS Department",
+          location: "Oujda, Morocco",
+          period: "Jul — Aug 2025",
+          bullets: [
+            "Developed an automatic Diabetic Retinopathy detection system using Deep Learning."
+          ],
+          tech: ["Python", "TensorFlow/Keras", "Pandas", "NumPy", "Git"]
+        }
+      ]
+    },
+    projects: {
+      title: "🚀 Projects",
+      items: [
+        {
+          title:
+            "Eklia – AI Assistant for Radiologists: Brain MRI Detection and Automatic Report Writing",
+          date: "Feb 2025 — May 2025",
+          details: [
+            "Brain tumor classification & segmentation.",
+            "Medical report generation with NLP & OCR.",
+            "Web interface with visualization, validation and report editing."
+          ],
+          githubLink: "https://github.com/BNAD-A/Eklia"
+        },
+        {
+          title: "Skinia – AI-Based Skin Cancer Detection",
+          date: "Feb 2025 — Apr 2025",
+          details: [
+            "Automatic skin lesion detection via CNN.",
+            "Optimized pipeline to recognize multiple types (melanoma, nevus...).",
+            "Web interface for analysis, monitoring and referral to dermatologist."
+          ],
+          githubLink: "https://github.com/BNAD-A/SkinCancer_Detection"
+        },
+        {
+          title: "DonSang – Donor/Recipient Matching Platform",
+          date: "Apr 2025 — May 2025",
+          details: [
+            "SQL database of medical and geographical profiles of donors and recipients.",
+            "Python matching algorithm by compatibility and proximity.",
+            "Dual session web interface: donors & healthcare professionals."
+          ],
+          githubLink: "https://github.com/BNAD-A/BloodMatching"
+        },
+        {
+          title: "AI Mental Health Chatbot",
+          date: "Oct 2024 — Dec 2024",
+          details: [
+            "Development of an AI-based mental health chatbot.",
+            "Implementation of emotion recognition and reinforcement learning.",
+            "Creation of an intentions and responses database.",
+            "Collaboration with a team of 3 engineering students."
+          ],
+          githubLink: "https://github.com/BNAD-A/ChatWell_Bot"
+        },
+        {
+          title: "Breast Cancer Data Analysis",
+          date: "Oct 2024 — Dec 2024",
+          details: [
+            "Medical data analysis and breast tumor classification.",
+            "Application of advanced Data Mining techniques.",
+            "Machine Learning model development.",
+            "Results visualization for medical interpretation."
+          ],
+          githubLink: "https://github.com/BNAD-A/BreastCancerAnalysis"
+        },
+        {
+          title: "IoT Multiparametric Health Monitor",
+          date: "Oct 2024 — Dec 2024",
+          details: [
+            "Development of an IoT system for health monitoring.",
+            "Integration of sensors (temperature, heart rate, SpO2).",
+            "Development of mobile and web interface with Blynk.",
+            "Implementation of Wi-Fi/Bluetooth connectivity."
+          ],
+          githubLink: "https://github.com/BNAD-A/MultiParametric-Monitor-"
+        },
+        {
+          title: "CV Portfolio",
+          date: "Feb 2025",
+          details: [
+            "Development of my personal portfolio in React.js.",
+            "Implementation of dark mode and interactive design.",
+            "Website hosting on Vercel with continuous deployment."
+          ],
+          githubLink: "https://github.com/BNAD-A/PersonalPortfolio"
+        }
+      ]
+    },
+    skills: {
+      title: "💡 Hard Skills",
+      items: [
+        { category: "Data Science", skills: "AI, ML, Data Mining" },
+        { category: "Programming Languages", skills: "Python, C, C++, MATLAB, PHP" },
+        { category: "Database", skills: "MySQL, SQL, Firebase" },
+        { category: "Web Development", skills: "HTML, CSS, JavaScript" },
+        { category: "Cloud Computing", skills: "Docker, AWS" },
+        { category: "Embedded Systems & IoT", skills: "Arduino, Raspberry Pi" },
+        { category: "Office 365", skills: "" }
+      ]
+    },
+    softSkills: {
+      title: "🎯 Soft Skills",
+      items: [
+        { icon: "fas fa-lightbulb", title: "Creativity", description: "Ability to innovate and propose original solutions." },
+        { icon: "fas fa-users", title: "Teamwork", description: "Good collaboration with multidisciplinary teams." },
+        { icon: "fas fa-comments", title: "Communication", description: "Ability to express ideas clearly and effectively." },
+        { icon: "fas fa-clock", title: "Time Management", description: "Effective task prioritization and deadline compliance." },
+        { icon: "fas fa-cogs", title: "Problem Solving", description: "Analytical approach to find optimal solutions." }
+      ]
+    },
+    languageSkills: {
+      title: "🌍 Languages",
+      items: [
+        { name: "Arabic", level: "Native language", width: "100%" },
+        { name: "French", level: "Fluent", width: "85%" },
+        { name: "English", level: "Upper intermediate", width: "75%" },
+        { name: "Spanish", level: "Intermediate", width: "50%" },
+        { name: "German", level: "Basic notions", width: "25%" }
+      ]
+    }
+  }
+};
 
 const Portfolio = () => {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const [theme, setTheme] = useState("light"); // Removed localStorage
+  const [language, setLanguage] = useState("fr"); // État pour la langue
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  // Récupérer le contenu actuel basé sur la langue
+  const currentContent = translations[language];
 
   useEffect(() => {
     document.body.classList.remove("light", "dark");
     document.body.classList.add(theme);
-    localStorage.setItem("theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
+  };
+
+  const toggleLanguage = () => {
+    setLanguage(language === "fr" ? "en" : "fr");
   };
 
   const toggleSidebar = () => {
@@ -28,22 +382,25 @@ const Portfolio = () => {
   return (
     <div className={`container ${theme}`}>
       {/* 🌗 Bouton pour le mode sombre/clair */}
-      {/* 🌗 Bouton Mode Sombre/Clair */}
       <button className="toggle-theme" onClick={toggleTheme}>
         {theme === "light" ? "🌙" : "☀️"}
       </button>
 
-      {/* 📌 Bouton Sidebar Mobile */}
-      <button className="toggle-sidebar-mobile" onClick={toggleSidebar}>
-        {isSidebarOpen ? "✖" : "☰ Contact"}
+      {/* 🌍 Bouton pour changer de langue */}
+      <button className="toggle-language" onClick={toggleLanguage}>
+        {language === "fr" ? "🇬🇧 EN" : "🇫🇷 FR"}
       </button>
 
+      {/* 📌 Bouton Sidebar Mobile */}
+      <button className="toggle-sidebar-mobile" onClick={toggleSidebar}>
+        {isSidebarOpen ? "✖" : currentContent.contact}
+      </button>
 
       {/* 📌 Sidebar gauche */}
       <div className={`sidebar ${isSidebarOpen ? "expanded" : ""}`}>
         <img src={profileImage} alt="Benchaou Nada" className="profile-img" />
-        <h1>Nada Benchaou</h1>
-        <p>Futur Ingénieure en Santé Digitale</p>
+        <h1>{currentContent.name}</h1>
+        <p>{currentContent.title}</p>
         <div className="contact-info">
           <a href="tel:+212682291114" className="contact-link">📞 +212 6 82 29 11 14</a>
           <p>
@@ -51,28 +408,31 @@ const Portfolio = () => {
               ✉ bnadabenchaou@gmail.com
             </a>
           </p>
-          <p>📍 Casablanca, Maroc</p>
+          <p>📍 {currentContent.location}</p>
         </div>
         <div className="social-links">
           <a href="https://www.linkedin.com/in/nada-benchaou-105514253/" target="_blank" rel="noopener noreferrer">
             <img src={theme === "light" ? linkedinLight : linkedinDark} alt="LinkedIn" className="social-icon" />
           </a>
-          <a href="https://github.com/BNAD-A" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/BNAD-A" target="_blank" rel="noopener noreferrer">
             <img src={theme === "light" ? githubDark : githubLight} alt="GitHub" className="social-icon" />
           </a>
         </div>
-        <a href="/BENCHAOU_Nada CV.pdf" download className="download-btn">📥 Télécharger CV</a>
+        <a href="/BENCHAOU Nada CV FR.pdf" download className="download-btn">{currentContent.downloadCVFR}</a>
+        <a href="/BENCHAOU Nada CV EN.pdf" download className="download-btn">{currentContent.downloadCVEN}</a>
       </div>
 
       {/* 📌 Barre latérale droite fixe (menu compact avec icônes) */}
       <div className={`right-sidebar ${isSidebarOpen ? "hidden" : ""}`}>
         <ul>
-          <li><a href="#about"><i className="fas fa-user"></i> À propos</a></li>
-          <li><a href="#resume"><i className="fas fa-graduation-cap"></i> Éducation</a></li>
-          <li><a href="#projects"><i className="fas fa-folder-open"></i> Projets</a></li>
-          <li><a href="#skills"><i className="fas fa-cogs"></i> Hard Skills</a></li>
-          <li><a href="#soft-skills"><i className="fas fa-brain"></i> Soft Skills</a></li>
-          <li><a href="#languages"><i className="fas fa-language"></i> Langues</a></li>
+          <li><a href="#about"><i className="fas fa-user"></i> {currentContent.navigation.about}</a></li>
+          <li><a href="#resume"><i className="fas fa-graduation-cap"></i> {currentContent.navigation.education}</a></li>
+          {/* ✅ LIEN MENU EXPÉRIENCE */}
+          <li><a href="#experience"><i className="fas fa-briefcase"></i> {currentContent.navigation.experience}</a></li>
+          <li><a href="#projects"><i className="fas fa-folder-open"></i> {currentContent.navigation.projects}</a></li>
+          <li><a href="#skills"><i className="fas fa-cogs"></i> {currentContent.navigation.skills}</a></li>
+          <li><a href="#soft-skills"><i className="fas fa-brain"></i> {currentContent.navigation.softSkills}</a></li>
+          <li><a href="#languages"><i className="fas fa-language"></i> {currentContent.navigation.languages}</a></li>
         </ul>
       </div>
 
@@ -80,28 +440,17 @@ const Portfolio = () => {
       <div className="main-content">
         {/* 📌 Section "À propos de moi" */}
         <section id="about" className="about-section">
-          <h2>👤À propos de moi</h2>
+          <h2>{currentContent.about.title}</h2>
           <div className="about-box">
-            <p>
-            Étudiante en deuxième année de cycle d’ingénieur en digital de santé, je suis profondément inspirée par les opportunités 
-            qu’offrent les technologies émergentes. Mon parcours me permet d’explorer non seulement les innovations numériques qui 
-            transforment le secteur médical, mais aussi toute forme de progrès technologique qui repousse les limites de ce qui est possible. 
-            Toujours curieuse et motivée, je cherche à participer à des projets pionniers qui façonnent l’avenir, en particulier dans les 
-            domaines où santé et innovation s’entrecroisent. 
-            </p>
+            <p>{currentContent.about.content}</p>
           </div>
         </section>
+
         {/* Section Éducation */}
         <section id="resume" className="education">
-          <h2>🎓 Éducation</h2>
+          <h2>{currentContent.education.title}</h2>
           <div className="education-container">
-            {[
-              { year: "2023 - 2026", title: "2ÈME ANNÉE CYCLE D’INGÉNIEUR EN DIGITAL DE SANTÉ", place: "École Supérieure Mohammed VI d’Ingénieurs en Sciences de la Santé" },
-              { year: "2021 - 2023", title: "CLASSES PRÉPARATOIRES EN GÉNIE BIOMÉDICAL", place: "École Supérieure Mohammed VI d’Ingénieurs en Sciences de la Santé" },
-              { year: "2020 - 2021", title: "PREMIÈRE ANNÉE D'ARCHITECTURE", place: "Universidad de Granada - Espagne" },
-              { year: "2019 - 2020", title: "EQUIVALENT BACCALAURÉAT SCIENTIFIQUE ESPAGNOL", place: "Selectividad - Espagne" },
-              { year: "2018 - 2019", title: "BACCALAURÉAT SCIENTIFIQUE", place: "Lycée Omar Ibn AbdelAziz - Oujda Maroc" },
-            ].map((edu, index) => (
+            {currentContent.education.items.map((edu, index) => (
               <div className="education-box" key={index}>
                 <h3>{edu.year}</h3>
                 <p>{edu.title}</p>
@@ -111,54 +460,35 @@ const Portfolio = () => {
           </div>
         </section>
 
+        {/* ✅ SECTION EXPÉRIENCE (placée entre Éducation et Projets) */}
+        <section id="experience" className="experience">
+          <h2>{currentContent.experience.title}</h2>
+          <div className="experience-timeline">
+            {currentContent.experience.items.map((exp, index) => (
+              <article className="xp-card" key={index}>
+                <div className="xp-dot" />
+                <header className="xp-header">
+                  <h3>{exp.role}</h3>
+                  <span className="xp-period">{exp.period}</span>
+                </header>
+                <p className="xp-meta"><strong>{exp.org}</strong> • {exp.location}</p>
+                <ul className="xp-bullets">
+                  {exp.bullets.map((b, i) => <li key={i}>{b}</li>)}
+                </ul>
+                {Array.isArray(exp.tech) && exp.tech.length > 0 && (
+                  <div className="experience-tech">
+                    {exp.tech.map((t, i) => <span className="tech-badge" key={i}>{t}</span>)}
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section id="projects" className="projects">
-          <h2>🚀 Projets</h2>
+          <h2>{currentContent.projects.title}</h2>
           <div className="projects-container">
-            {[
-              {
-                title: "AI Mental Health Chatbot",
-                date: "Oct 2024 — Déc 2024",
-                details: [
-                  "Développement d’un chatbot de santé mentale basé sur l’IA.",
-                  "Implémentation de la reconnaissance des émotions et apprentissage par renforcement.",
-                  "Création d’une base de données d’intentions et de réponses.",
-                  "Collaboration avec une équipe de 3 étudiants ingénieurs."
-                ],
-                githubLink: "https://github.com/BNAD-A/ChatWell_Bot"
-              },
-              {
-                title: "Breast Cancer Data Analysis",
-                date: "Oct 2024 — Déc 2024",
-                details: [
-                  "Analyse de données médicales et classification des tumeurs mammaires.",
-                  "Application de techniques avancées de Data Mining.",
-                  "Développement de modèles de Machine Learning.",
-                  "Visualisation des résultats pour l’interprétation médicale."
-                ],
-                githubLink: "https://github.com/BNAD-A/BreastCancerAnalysis"
-              },
-              {
-                title: "IoT Multiparametric Health Monitor",
-                date: "Oct 2024 — Déc 2024",
-                details: [
-                  "Développement d’un système IoT pour la surveillance de santé.",
-                  "Intégration de capteurs (température, fréquence cardiaque, SpO2).",
-                  "Développement d’une interface mobile et web avec Blynk.",
-                  "Implémentation de la connectivité Wi-Fi/Bluetooth."
-                ],
-                githubLink: "https://github.com/BNAD-A/MultiParametric-Monitor-"
-              },
-              {
-                title: "CV Portfolio",
-                date: "Fév 2025",
-                details: [
-                  "Développement de mon portfolio personnel en React.js.",
-                  "Mise en place d’un mode sombre et d’un design interactif.",
-                  "Hébergement du site sur Vercel avec un déploiement continu."
-                ],
-                githubLink: "https://github.com/BNAD-A/PersonalPortfolio"
-              }
-            ].map((proj, index) => (
+            {currentContent.projects.items.map((proj, index) => (
               <div className="project-card" key={index}>
                 {/* Project Title with GitHub Icon Aligned Right */}
                 <div className="project-header">
@@ -176,62 +506,38 @@ const Portfolio = () => {
           </div>
         </section>
 
-
         {/* Section Compétences */}
         <section id="skills" className="skills">
-          <h2>💡 Hard Skills </h2>
+          <h2>{currentContent.skills.title}</h2>
           <div className="skills-container">
-            {["Data Science  AI, ML, Data Mining", "Langage de programmation  Python, C, C++, MATLAB, PHP", "Data Base  MySQL, SQL, Firebase", "Developpement WEB  HTML, CSS, JavaScript", "Cloud Computing  Docker, AWS", "Systèmes embarqués et IoT  Arduino, Raspberry Pi", "Office 365"].map((skill, index) => (
+            {currentContent.skills.items.map((skill, index) => (
               <div className="skill-box" key={index}>
-                <h4>{skill.split("  ")[0]}</h4>
-                <p>{skill.split("  ")[1]}</p>
+                <h4>{skill.category}</h4>
+                <p>{skill.skills}</p>
               </div>
             ))}
           </div>
         </section>
+
         {/* 📌 Section Soft Skills */}
         <section id="soft-skills" className="soft-skills-section">
-          <h2>🎯 Soft Skills</h2>
+          <h2>{currentContent.softSkills.title}</h2>
           <div className="soft-skills-container">
-            <div className="soft-skill-box">
-              <i className="fas fa-lightbulb"></i>
-              <h3>Créativité</h3>
-              <p>Capacité à innover et à proposer des solutions originales.</p>
-            </div>
-            <div className="soft-skill-box">
-              <i className="fas fa-users"></i>
-              <h3>Travail d'équipe</h3>
-              <p>Bonne collaboration avec des équipes multidisciplinaires.</p>
-            </div>
-            <div className="soft-skill-box">
-              <i className="fas fa-comments"></i>
-              <h3>Communication</h3>
-              <p>Capacité à exprimer des idées de manière claire et efficace.</p>
-            </div>
-            <div className="soft-skill-box">
-              <i className="fas fa-clock"></i>
-              <h3>Gestion du temps</h3>
-              <p>Priorisation efficace des tâches et respect des délais.</p>
-            </div>
-            <div className="soft-skill-box">
-              <i className="fas fa-cogs"></i>
-              <h3>Résolution de problèmes</h3>
-              <p>Approche analytique pour trouver des solutions optimales.</p>
-            </div>
+            {currentContent.softSkills.items.map((skill, index) => (
+              <div className="soft-skill-box" key={index}>
+                <i className={skill.icon}></i>
+                <h3>{skill.title}</h3>
+                <p>{skill.description}</p>
+              </div>
+            ))}
           </div>
         </section>
 
         {/* Section Langues */}
         <section id="languages" className="languages">
-          <h2>🌍 Langues</h2>
+          <h2>{currentContent.languageSkills.title}</h2>
           <div className="languages-container">
-            {[
-              { name: "Arabe", level: "Langue maternelle", width: "100%" },
-              { name: "Français", level: "Courant", width: "85%" },
-              { name: "Anglais", level: "Intermédiaire avancé", width: "75%" },
-              { name: "Espagnol", level: "Intermédiaire", width: "50%" },
-              { name: "Allemand", level: "Notion de base", width: "25%" }
-            ].map((lang, index) => (
+            {currentContent.languageSkills.items.map((lang, index) => (
               <div className="language-box" key={index}>
                 <h3>{lang.name}</h3>
                 <p>{lang.level}</p>
@@ -240,7 +546,6 @@ const Portfolio = () => {
             ))}
           </div>
         </section>
-
       </div>
     </div>
   );

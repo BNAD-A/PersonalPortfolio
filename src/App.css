@@ -40,3 +40,24 @@
 .read-the-docs {
   color: #888;
 }
+
+.toggle-language {
+  position: fixed;
+  top: 20px;
+  right: 80px; /* À côté du bouton de thème */
+  background: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 25px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.toggle-language:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
