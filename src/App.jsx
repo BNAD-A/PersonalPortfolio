@@ -72,6 +72,17 @@ const translations = {
       items: [
         {
           title:
+            "Double Regard : Double CBAM pour la détection de la rétinopathie diabétique",
+          date: "Juil 2025 — Août 2025",
+          details: [
+            "Classification d’images rétiniennes avec EfficientNetV2S.",
+            "Amélioration de l’attention visuelle via Double CBAM."
+          ],
+          githubLink: "https://github.com/BNAD-A/RetinopathyDetection"
+        },
+
+        {
+          title:
             "Eklia – Assistant IA pour radiologues détection et rédaction automatique de rapports d'IRM cérébrales",
           date: "Fév 2025 — Mai 2025",
           details: [
@@ -241,6 +252,16 @@ const translations = {
     projects: {
       title: "🚀 Projects",
       items: [
+        {
+          title:
+            "Double Vision: Double CBAM for Diabetic Retinopathy Detection",
+          date: "Jul 2025 — Aug 2025",
+          details: [
+            "Retinal image classification using EfficientNetV2S.",
+            "Enhanced visual attention through Double CBAM."
+          ],
+          githubLink: "https://github.com/BNAD-A/RetinopathyDetection"
+        },
         {
           title:
             "Eklia – AI Assistant for Radiologists: Brain MRI Detection and Automatic Report Writing",
