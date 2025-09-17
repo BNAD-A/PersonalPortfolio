@@ -27,8 +27,7 @@ const translations = {
     },
     about: {
       title: "👤À propos de moi",
-      content:
-        "Étudiante en troisième année de cycle d'ingénieur en digital de santé, je suis profondément inspirée par les opportunités qu'offrent les technologies émergentes. Mon parcours me permet d'explorer non seulement les innovations numériques qui transforment le secteur médical, mais aussi toute forme de progrès technologique qui repousse les limites de ce qui est possible. Toujours curieuse et motivée, je cherche à participer à des projets pionniers qui façonnent l'avenir, en particulier dans les domaines où santé et innovation s'entrecroisent."
+      content: "  Étudiante en troisième année de cycle d’ingénieur en digital de santé, je suis profondément inspirée par les opportunités qu’offrent les technologies émergentes. Mon parcours me permet d’explorer non seulement les innovations numériques qui transforment le secteur médical, mais aussi toute forme de progrès technologique qui repousse les limites de ce qui est possible. \nToujours curieuse et motivée, je cherche à participer à des projets pionniers qui façonnent l’avenir, en particulier dans les \ndomaines où santé et innovation s’entrecroisent. "
     },
     education: {
       title: "🎓 Éducation",
@@ -200,8 +199,7 @@ const translations = {
     about: {
       title: "👤About me",
       content:
-        "Third-year student in digital health engineering, I am deeply inspired by the opportunities offered by emerging technologies. My journey allows me to explore not only the digital innovations that are transforming the medical sector, but also any form of technological progress that pushes the boundaries of what is possible. Always curious and motivated, I seek to participate in pioneering projects that shape the future, particularly in areas where health and innovation intersect."
-    },
+"Final-year engineering student in Digital Health, passionate about innovation and emerging technologies in healthcare. Skilled in artificial intelligence, machine learning, deep learning, web application development, and database management. Curious, proactive, and results-oriented, with a strong commitment to designing reliable and impactful digital solutions to transform healthcare practices."},
     education: {
       title: "🎓 Education",
       items: [
@@ -418,8 +416,8 @@ const Portfolio = () => {
             <img src={theme === "light" ? githubDark : githubLight} alt="GitHub" className="social-icon" />
           </a>
         </div>
-        <a href="/BENCHAOU Nada CV FR.pdf" download className="download-btn">{currentContent.downloadCVFR}</a>
-        <a href="/BENCHAOU Nada CV EN.pdf" download className="download-btn">{currentContent.downloadCVEN}</a>
+        <a href="/BENCHAOU Nada CV FR VF.pdf" download className="download-btn">{currentContent.downloadCVFR}</a>
+        <a href="/BENCHAOU Nada CV EN VF.pdf" download className="download-btn">{currentContent.downloadCVEN}</a>
       </div>
 
       {/* 📌 Barre latérale droite fixe (menu compact avec icônes) */}
