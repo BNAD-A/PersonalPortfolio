@@ -66,6 +66,16 @@ const translations = {
     experience: {
       title: "💼 Expérience",
       items: [
+                {
+          role: "Stagiaire Technique – IA & Systèmes d'Information",
+          org: "CHU Oujda – Service Informatique & SI",
+          location: "Oujda, Maroc",
+          period: "Juil — Août 2025",
+          bullets: [
+            "Développement d’un Système de Détection Automatique de Rétinopathie Diabétique basé sur le Deep Learning.",
+          ],
+          tech: ["Python", "TensorFlow/Keras", "Pandas", "NumPy", "Git"],
+        },
         {
           role: "Stagiaire Observatrice",
           org: "CHU Oujda – Service Biomédical",
@@ -77,16 +87,6 @@ const translations = {
             "Participation à l’installation d’une IRM et configuration en salle d’opération.",
           ],
           tech: [],
-        },
-        {
-          role: "Stagiaire Technique – IA & Systèmes d'Information",
-          org: "CHU Oujda – Service Informatique & SI",
-          location: "Oujda, Maroc",
-          period: "Juil — Août 2025",
-          bullets: [
-            "Développement d’un Système de Détection Automatique de Rétinopathie Diabétique basé sur le Deep Learning.",
-          ],
-          tech: ["Python", "TensorFlow/Keras", "Pandas", "NumPy", "Git"],
         },
       ],
     },
@@ -294,6 +294,16 @@ const translations = {
       title: "💼 Experience",
       items: [
         {
+          role: "Technical Intern – AI & Information Systems",
+          org: "CHU Oujda – IT & IS Department",
+          location: "Oujda, Morocco",
+          period: "Jul — Aug 2025",
+          bullets: [
+            "Developed an automatic Diabetic Retinopathy detection system using Deep Learning.",
+          ],
+          tech: ["Python", "TensorFlow/Keras", "Pandas", "NumPy", "Git"],
+        },
+        {
           role: "Observation Intern",
           org: "CHU Oujda – Biomedical Department",
           location: "Oujda, Morocco",
@@ -305,16 +315,7 @@ const translations = {
           ],
           tech: [],
         },
-        {
-          role: "Technical Intern – AI & Information Systems",
-          org: "CHU Oujda – IT & IS Department",
-          location: "Oujda, Morocco",
-          period: "Jul — Aug 2025",
-          bullets: [
-            "Developed an automatic Diabetic Retinopathy detection system using Deep Learning.",
-          ],
-          tech: ["Python", "TensorFlow/Keras", "Pandas", "NumPy", "Git"],
-        },
+        
       ],
     },
     projects: {
