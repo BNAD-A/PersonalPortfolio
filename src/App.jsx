@@ -26,7 +26,7 @@ const translations = {
     },
     about: {
       hello: "Bonjour 👋",
-      role: "Élève ingénieure en Santé Digitale",
+      role: "Élève ingénieure en Santé Digitale à la recherche d’un Stage PFE 2026 en E-Santé — Allier IA et ingénierie pour transformer les pratiques de santé",
       title: "👤À propos de moi",
       content:
         "Élève ingénieure en Santé Digitale, passionnée par l’innovation et les technologies émergentes appliquées à la santé. Je maîtrise les concepts clés de l’intelligence artificielle, du machine learning et du deep learning, ainsi que le développement d’applications web et la gestion de bases de données. Curieuse, proactive et orientée résultats, je m’engage à concevoir des solutions numériques fiables et impactantes pour transformer les pratiques de santé.",
@@ -255,7 +255,7 @@ const translations = {
     },
     about: {
       hello: "Hello 👋",
-      role: "Final-year engineering student in Digital Health",
+      role: "Final-year engineering student in Digital Health- Seeking a 2026 Final-Year Internship in Digital Health — Bridging AI and Engineering to Transform Healthcare Practices",
       title: "👤About me",
       content:
         "Final-year engineering student in Digital Health, passionate about innovation and emerging technologies in healthcare. Skilled in artificial intelligence, machine learning, deep learning, web application development, and database management. Curious, proactive, and results-oriented, with a strong commitment to designing reliable and impactful digital solutions to transform healthcare practices.",
