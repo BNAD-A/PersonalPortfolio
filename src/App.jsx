@@ -6,7 +6,7 @@ import githubLight from "./assets/github-light.png"; // Icône GitHub mode clair
 import githubDark from "./assets/github-dark.png"; // Icône GitHub mode sombre
 import "./styles.css";
 
-// 🌍 Contenu multilingue
+// 🌍 Contenu multilingue (ajout des clés about.hello et about.role)
 const translations = {
   fr: {
     name: "Nada Benchaou",
@@ -18,28 +18,51 @@ const translations = {
     navigation: {
       about: "À propos",
       education: "Éducation",
-      // ✅ AJOUT
       experience: "Expérience",
       projects: "Projets",
       skills: "Hard Skills",
       softSkills: "Soft Skills",
-      languages: "Langues"
+      languages: "Langues",
     },
     about: {
+      hello: "Bonjour 👋",
+      role: "Élève ingénieure en Santé Digitale",
       title: "👤À propos de moi",
-      content: "  Élève ingénieure en Santé Digitale, passionnée par l’innovation et les technologies émergentes appliquées à la santé. Je maîtrise les concepts clés de l’intelligence artificielle, du machine learning et du deep learning, ainsi que le développement d’applications web et la gestion de bases de données. Curieuse, proactive et orientée résultats, je m’engage à concevoir des solutions numériques fiables et impactantes pour transformer les pratiques de santé."
+      content:
+        "Élève ingénieure en Santé Digitale, passionnée par l’innovation et les technologies émergentes appliquées à la santé. Je maîtrise les concepts clés de l’intelligence artificielle, du machine learning et du deep learning, ainsi que le développement d’applications web et la gestion de bases de données. Curieuse, proactive et orientée résultats, je m’engage à concevoir des solutions numériques fiables et impactantes pour transformer les pratiques de santé.",
     },
     education: {
       title: "🎓 Éducation",
       items: [
-        { year: "2023 - 2026", title: "3ÈME ANNÉE CYCLE D'INGÉNIEUR EN DIGITAL DE SANTÉ", place: "École Supérieure Mohammed VI d'Ingénieurs en Sciences de la Santé" },
-        { year: "2021 - 2023", title: "CLASSES PRÉPARATOIRES EN GÉNIE BIOMÉDICAL", place: "École Supérieure Mohammed VI d'Ingénieurs en Sciences de la Santé" },
-        { year: "2020 - 2021", title: "PREMIÈRE ANNÉE D'ARCHITECTURE", place: "Universidad de Granada - Espagne" },
-        { year: "2019 - 2020", title: "EQUIVALENT BACCALAURÉAT SCIENTIFIQUE ESPAGNOL", place: "Selectividad - Espagne" },
-        { year: "2018 - 2019", title: "BACCALAURÉAT SCIENTIFIQUE", place: "Lycée Omar Ibn AbdelAziz - Oujda Maroc" }
-      ]
+        {
+          year: "2023 - 2026",
+          title: "3ÈME ANNÉE CYCLE D'INGÉNIEUR EN DIGITAL DE SANTÉ",
+          place:
+            "École Supérieure Mohammed VI d'Ingénieurs en Sciences de la Santé",
+        },
+        {
+          year: "2021 - 2023",
+          title: "CLASSES PRÉPARATOIRES EN GÉNIE BIOMÉDICAL",
+          place:
+            "École Supérieure Mohammed VI d'Ingénieurs en Sciences de la Santé",
+        },
+        {
+          year: "2020 - 2021",
+          title: "PREMIÈRE ANNÉE D'ARCHITECTURE",
+          place: "Universidad de Granada - Espagne",
+        },
+        {
+          year: "2019 - 2020",
+          title: "EQUIVALENT BACCALAURÉAT SCIENTIFIQUE ESPAGNOL",
+          place: "Selectividad - Espagne",
+        },
+        {
+          year: "2018 - 2019",
+          title: "BACCALAURÉAT SCIENTIFIQUE",
+          place: "Lycée Omar Ibn AbdelAziz - Oujda Maroc",
+        },
+      ],
     },
-    // ✅ AJOUT : EXPÉRIENCE (2 stages)
     experience: {
       title: "💼 Expérience",
       items: [
@@ -51,9 +74,9 @@ const translations = {
           bullets: [
             "Tournée au bloc opératoire, autotests des respirateurs et maintenance d’équipements.",
             "Visites des services de réanimation, néonatologie, radiologie.",
-            "Participation à l’installation d’une IRM et configuration en salle d’opération."
+            "Participation à l’installation d’une IRM et configuration en salle d’opération.",
           ],
-          tech: []
+          tech: [],
         },
         {
           role: "Stagiaire Technique – IA & Systèmes d'Information",
@@ -61,11 +84,11 @@ const translations = {
           location: "Oujda, Maroc",
           period: "Juil — Août 2025",
           bullets: [
-            "Développement d’un Système de Détection Automatique de Rétinopathie Diabétique basé sur le Deep Learning."
+            "Développement d’un Système de Détection Automatique de Rétinopathie Diabétique basé sur le Deep Learning.",
           ],
-          tech: ["Python", "TensorFlow/Keras", "Pandas", "NumPy", "Git"]
-        }
-      ]
+          tech: ["Python", "TensorFlow/Keras", "Pandas", "NumPy", "Git"],
+        },
+      ],
     },
     projects: {
       title: "🚀 Projets",
@@ -76,11 +99,10 @@ const translations = {
           date: "Juil 2025 — Août 2025",
           details: [
             "Classification d’images rétiniennes avec EfficientNetV2S.",
-            "Amélioration de l’attention visuelle via Double CBAM."
+            "Amélioration de l’attention visuelle via Double CBAM.",
           ],
-          githubLink: "https://github.com/BNAD-A/RetinopathyDetection"
+          githubLink: "https://github.com/BNAD-A/RetinopathyDetection",
         },
-
         {
           title:
             "Eklia – Assistant IA pour radiologues détection et rédaction automatique de rapports d'IRM cérébrales",
@@ -88,9 +110,9 @@ const translations = {
           details: [
             "Classification & segmentation de tumeurs cérébrales.",
             "Génération de rapports médicaux avec NLP & OCR.",
-            "Interface web avec visualisation, validation et édition des rapports."
+            "Interface web avec visualisation, validation et édition des rapports.",
           ],
-          githubLink: "https://github.com/BNAD-A/Eklia"
+          githubLink: "https://github.com/BNAD-A/Eklia",
         },
         {
           title: "Skinia – Détection du Cancer de la Peau par IA",
@@ -98,9 +120,9 @@ const translations = {
           details: [
             "Détection automatique de lésions cutanées via CNN.",
             "Pipeline optimisé pour reconnaître plusieurs types (mélanome, nævus…).",
-            "Interface web pour analyse, suivi et orientation vers un dermatologue."
+            "Interface web pour analyse, suivi et orientation vers un dermatologue.",
           ],
-          githubLink: "https://github.com/BNAD-A/SkinCancer_Detection"
+          githubLink: "https://github.com/BNAD-A/SkinCancer_Detection",
         },
         {
           title: "DonSang – Plateforme de Matching Donneurs/Receveurs",
@@ -108,9 +130,9 @@ const translations = {
           details: [
             "Base de données SQL des profils médicaux et géographiques des donneurs et receveurs.",
             "Algorithme Python de matching par compatibilité et proximité.",
-            "Interface web double session : donneurs & professionnels de santé."
+            "Interface web double session : donneurs & professionnels de santé.",
           ],
-          githubLink: "https://github.com/BNAD-A/BloodMatching"
+          githubLink: "https://github.com/BNAD-A/BloodMatching",
         },
         {
           title: "AI Mental Health Chatbot",
@@ -119,9 +141,9 @@ const translations = {
             "Développement d'un chatbot de santé mentale basé sur l'IA.",
             "Implémentation de la reconnaissance des émotions et apprentissage par renforcement.",
             "Création d'une base de données d'intentions et de réponses.",
-            "Collaboration avec une équipe de 3 étudiants ingénieurs."
+            "Collaboration avec une équipe de 3 étudiants ingénieurs.",
           ],
-          githubLink: "https://github.com/BNAD-A/ChatWell_Bot"
+          githubLink: "https://github.com/BNAD-A/ChatWell_Bot",
         },
         {
           title: "Breast Cancer Data Analysis",
@@ -130,9 +152,9 @@ const translations = {
             "Analyse de données médicales et classification des tumeurs mammaires.",
             "Application de techniques avancées de Data Mining.",
             "Développement de modèles de Machine Learning.",
-            "Visualisation des résultats pour l'interprétation médicale."
+            "Visualisation des résultats pour l'interprétation médicale.",
           ],
-          githubLink: "https://github.com/BNAD-A/BreastCancerAnalysis"
+          githubLink: "https://github.com/BNAD-A/BreastCancerAnalysis",
         },
         {
           title: "IoT Multiparametric Health Monitor",
@@ -141,9 +163,9 @@ const translations = {
             "Développement d'un système IoT pour la surveillance de santé.",
             "Intégration de capteurs (température, fréquence cardiaque, SpO2).",
             "Développement d'une interface mobile et web avec Blynk.",
-            "Implémentation de la connectivité Wi-Fi/Bluetooth."
+            "Implémentation de la connectivité Wi-Fi/Bluetooth.",
           ],
-          githubLink: "https://github.com/BNAD-A/MultiParametric-Monitor-"
+          githubLink: "https://github.com/BNAD-A/MultiParametric-Monitor-",
         },
         {
           title: "CV Portfolio",
@@ -151,11 +173,11 @@ const translations = {
           details: [
             "Développement de mon portfolio personnel en React.js.",
             "Mise en place d'un mode sombre et d'un design interactif.",
-            "Hébergement du site sur Vercel avec un déploiement continu."
+            "Hébergement du site sur Vercel avec un déploiement continu.",
           ],
-          githubLink: "https://github.com/BNAD-A/PersonalPortfolio"
-        }
-      ]
+          githubLink: "https://github.com/BNAD-A/PersonalPortfolio",
+        },
+      ],
     },
     skills: {
       title: "💡 Hard Skills",
@@ -166,18 +188,43 @@ const translations = {
         { category: "Developpement WEB", skills: "HTML, CSS, JavaScript" },
         { category: "Cloud Computing", skills: "Docker, AWS" },
         { category: "Systèmes embarqués et IoT", skills: "Arduino, Raspberry Pi" },
-        { category: "Office 365", skills: "" }
-      ]
+        { category: "Office 365", skills: "" },
+      ],
     },
     softSkills: {
       title: "🎯 Soft Skills",
       items: [
-        { icon: "fas fa-lightbulb", title: "Créativité", description: "Capacité à innover et à proposer des solutions originales." },
-        { icon: "fas fa-users", title: "Travail d'équipe", description: "Bonne collaboration avec des équipes multidisciplinaires." },
-        { icon: "fas fa-comments", title: "Communication", description: "Capacité à exprimer des idées de manière claire et efficace." },
-        { icon: "fas fa-clock", title: "Gestion du temps", description: "Priorisation efficace des tâches et respect des délais." },
-        { icon: "fas fa-cogs", title: "Résolution de problèmes", description: "Approche analytique pour trouver des solutions optimales." }
-      ]
+        {
+          icon: "fas fa-lightbulb",
+          title: "Créativité",
+          description:
+            "Capacité à innover et à proposer des solutions originales.",
+        },
+        {
+          icon: "fas fa-users",
+          title: "Travail d'équipe",
+          description:
+            "Bonne collaboration avec des équipes multidisciplinaires.",
+        },
+        {
+          icon: "fas fa-comments",
+          title: "Communication",
+          description:
+            "Capacité à exprimer des idées de manière claire et efficace.",
+        },
+        {
+          icon: "fas fa-clock",
+          title: "Gestion du temps",
+          description:
+            "Priorisation efficace des tâches et respect des délais.",
+        },
+        {
+          icon: "fas fa-cogs",
+          title: "Résolution de problèmes",
+          description:
+            "Approche analytique pour trouver des solutions optimales.",
+        },
+      ],
     },
     languageSkills: {
       title: "🌍 Langues",
@@ -186,9 +233,9 @@ const translations = {
         { name: "Français", level: "Courant", width: "85%" },
         { name: "Anglais", level: "Intermédiaire avancé", width: "75%" },
         { name: "Espagnol", level: "Intermédiaire", width: "50%" },
-        { name: "Allemand", level: "Notion de base", width: "25%" }
-      ]
-    }
+        { name: "Allemand", level: "Notion de base", width: "25%" },
+      ],
+    },
   },
   en: {
     name: "Nada Benchaou",
@@ -200,28 +247,49 @@ const translations = {
     navigation: {
       about: "About",
       education: "Education",
-      // ✅ ADD
       experience: "Experience",
       projects: "Projects",
       skills: "Hard Skills",
       softSkills: "Soft Skills",
-      languages: "Languages"
+      languages: "Languages",
     },
     about: {
+      hello: "Hello 👋",
+      role: "Final-year engineering student in Digital Health",
       title: "👤About me",
       content:
-"Final-year engineering student in Digital Health, passionate about innovation and emerging technologies in healthcare. Skilled in artificial intelligence, machine learning, deep learning, web application development, and database management. Curious, proactive, and results-oriented, with a strong commitment to designing reliable and impactful digital solutions to transform healthcare practices."},
+        "Final-year engineering student in Digital Health, passionate about innovation and emerging technologies in healthcare. Skilled in artificial intelligence, machine learning, deep learning, web application development, and database management. Curious, proactive, and results-oriented, with a strong commitment to designing reliable and impactful digital solutions to transform healthcare practices.",
+    },
     education: {
       title: "🎓 Education",
       items: [
-        { year: "2023 - 2026", title: "3RD YEAR DIGITAL HEALTH ENGINEERING CYCLE", place: "Mohammed VI Higher School of Health Sciences Engineers" },
-        { year: "2021 - 2023", title: "PREPARATORY CLASSES IN BIOMEDICAL ENGINEERING", place: "Mohammed VI Higher School of Health Sciences Engineers" },
-        { year: "2020 - 2021", title: "FIRST YEAR OF ARCHITECTURE", place: "Universidad de Granada - Spain" },
-        { year: "2019 - 2020", title: "SPANISH SCIENTIFIC BACCALAUREATE EQUIVALENT", place: "Selectividad - Spain" },
-        { year: "2018 - 2019", title: "SCIENTIFIC BACCALAUREATE", place: "Omar Ibn AbdelAziz High School - Oujda Morocco" }
-      ]
+        {
+          year: "2023 - 2026",
+          title: "3RD YEAR DIGITAL HEALTH ENGINEERING CYCLE",
+          place: "Mohammed VI Higher School of Health Sciences Engineers",
+        },
+        {
+          year: "2021 - 2023",
+          title: "PREPARATORY CLASSES IN BIOMEDICAL ENGINEERING",
+          place: "Mohammed VI Higher School of Health Sciences Engineers",
+        },
+        {
+          year: "2020 - 2021",
+          title: "FIRST YEAR OF ARCHITECTURE",
+          place: "Universidad de Granada - Spain",
+        },
+        {
+          year: "2019 - 2020",
+          title: "SPANISH SCIENTIFIC BACCALAUREATE EQUIVALENT",
+          place: "Selectividad - Spain",
+        },
+        {
+          year: "2018 - 2019",
+          title: "SCIENTIFIC BACCALAUREATE",
+          place: "Omar Ibn AbdelAziz High School - Oujda Morocco",
+        },
+      ],
     },
-    // ✅ ADD : EXPERIENCE (2 internships)
     experience: {
       title: "💼 Experience",
       items: [
@@ -233,9 +301,9 @@ const translations = {
           bullets: [
             "Operating room tour, ventilator self-tests and equipment maintenance.",
             "Visits to ICU, neonatology and radiology departments.",
-            "Contributed to MRI installation and operating room configuration."
+            "Contributed to MRI installation and operating room configuration.",
           ],
-          tech: []
+          tech: [],
         },
         {
           role: "Technical Intern – AI & Information Systems",
@@ -243,24 +311,23 @@ const translations = {
           location: "Oujda, Morocco",
           period: "Jul — Aug 2025",
           bullets: [
-            "Developed an automatic Diabetic Retinopathy detection system using Deep Learning."
+            "Developed an automatic Diabetic Retinopathy detection system using Deep Learning.",
           ],
-          tech: ["Python", "TensorFlow/Keras", "Pandas", "NumPy", "Git"]
-        }
-      ]
+          tech: ["Python", "TensorFlow/Keras", "Pandas", "NumPy", "Git"],
+        },
+      ],
     },
     projects: {
       title: "🚀 Projects",
       items: [
         {
-          title:
-            "Double Vision: Double CBAM for Diabetic Retinopathy Detection",
+          title: "Double Vision: Double CBAM for Diabetic Retinopathy Detection",
           date: "Jul 2025 — Aug 2025",
           details: [
             "Retinal image classification using EfficientNetV2S.",
-            "Enhanced visual attention through Double CBAM."
+            "Enhanced visual attention through Double CBAM.",
           ],
-          githubLink: "https://github.com/BNAD-A/RetinopathyDetection"
+          githubLink: "https://github.com/BNAD-A/RetinopathyDetection",
         },
         {
           title:
@@ -269,9 +336,9 @@ const translations = {
           details: [
             "Brain tumor classification & segmentation.",
             "Medical report generation with NLP & OCR.",
-            "Web interface with visualization, validation and report editing."
+            "Web interface with visualization, validation and report editing.",
           ],
-          githubLink: "https://github.com/BNAD-A/Eklia"
+          githubLink: "https://github.com/BNAD-A/Eklia",
         },
         {
           title: "Skinia – AI-Based Skin Cancer Detection",
@@ -279,9 +346,9 @@ const translations = {
           details: [
             "Automatic skin lesion detection via CNN.",
             "Optimized pipeline to recognize multiple types (melanoma, nevus...).",
-            "Web interface for analysis, monitoring and referral to dermatologist."
+            "Web interface for analysis, monitoring and referral to dermatologist.",
           ],
-          githubLink: "https://github.com/BNAD-A/SkinCancer_Detection"
+          githubLink: "https://github.com/BNAD-A/SkinCancer_Detection",
         },
         {
           title: "DonSang – Donor/Recipient Matching Platform",
@@ -289,9 +356,9 @@ const translations = {
           details: [
             "SQL database of medical and geographical profiles of donors and recipients.",
             "Python matching algorithm by compatibility and proximity.",
-            "Dual session web interface: donors & healthcare professionals."
+            "Dual session web interface: donors & healthcare professionals.",
           ],
-          githubLink: "https://github.com/BNAD-A/BloodMatching"
+          githubLink: "https://github.com/BNAD-A/BloodMatching",
         },
         {
           title: "AI Mental Health Chatbot",
@@ -300,9 +367,9 @@ const translations = {
             "Development of an AI-based mental health chatbot.",
             "Implementation of emotion recognition and reinforcement learning.",
             "Creation of an intentions and responses database.",
-            "Collaboration with a team of 3 engineering students."
+            "Collaboration with a team of 3 engineering students.",
           ],
-          githubLink: "https://github.com/BNAD-A/ChatWell_Bot"
+          githubLink: "https://github.com/BNAD-A/ChatWell_Bot",
         },
         {
           title: "Breast Cancer Data Analysis",
@@ -311,9 +378,9 @@ const translations = {
             "Medical data analysis and breast tumor classification.",
             "Application of advanced Data Mining techniques.",
             "Machine Learning model development.",
-            "Results visualization for medical interpretation."
+            "Results visualization for medical interpretation.",
           ],
-          githubLink: "https://github.com/BNAD-A/BreastCancerAnalysis"
+          githubLink: "https://github.com/BNAD-A/BreastCancerAnalysis",
         },
         {
           title: "IoT Multiparametric Health Monitor",
@@ -322,9 +389,9 @@ const translations = {
             "Development of an IoT system for health monitoring.",
             "Integration of sensors (temperature, heart rate, SpO2).",
             "Development of mobile and web interface with Blynk.",
-            "Implementation of Wi-Fi/Bluetooth connectivity."
+            "Implementation of Wi-Fi/Bluetooth connectivity.",
           ],
-          githubLink: "https://github.com/BNAD-A/MultiParametric-Monitor-"
+          githubLink: "https://github.com/BNAD-A/MultiParametric-Monitor-",
         },
         {
           title: "CV Portfolio",
@@ -332,11 +399,11 @@ const translations = {
           details: [
             "Development of my personal portfolio in React.js.",
             "Implementation of dark mode and interactive design.",
-            "Website hosting on Vercel with continuous deployment."
+            "Website hosting on Vercel with continuous deployment.",
           ],
-          githubLink: "https://github.com/BNAD-A/PersonalPortfolio"
-        }
-      ]
+          githubLink: "https://github.com/BNAD-A/PersonalPortfolio",
+        },
+      ],
     },
     skills: {
       title: "💡 Hard Skills",
@@ -347,18 +414,43 @@ const translations = {
         { category: "Web Development", skills: "HTML, CSS, JavaScript" },
         { category: "Cloud Computing", skills: "Docker, AWS" },
         { category: "Embedded Systems & IoT", skills: "Arduino, Raspberry Pi" },
-        { category: "Office 365", skills: "" }
-      ]
+        { category: "Office 365", skills: "" },
+      ],
     },
     softSkills: {
       title: "🎯 Soft Skills",
       items: [
-        { icon: "fas fa-lightbulb", title: "Creativity", description: "Ability to innovate and propose original solutions." },
-        { icon: "fas fa-users", title: "Teamwork", description: "Good collaboration with multidisciplinary teams." },
-        { icon: "fas fa-comments", title: "Communication", description: "Ability to express ideas clearly and effectively." },
-        { icon: "fas fa-clock", title: "Time Management", description: "Effective task prioritization and deadline compliance." },
-        { icon: "fas fa-cogs", title: "Problem Solving", description: "Analytical approach to find optimal solutions." }
-      ]
+        {
+          icon: "fas fa-lightbulb",
+          title: "Creativity",
+          description:
+            "Ability to innovate and propose original solutions.",
+        },
+        {
+          icon: "fas fa-users",
+          title: "Teamwork",
+          description:
+            "Good collaboration with multidisciplinary teams.",
+        },
+        {
+          icon: "fas fa-comments",
+          title: "Communication",
+          description:
+            "Ability to express ideas clearly and effectively.",
+        },
+        {
+          icon: "fas fa-clock",
+          title: "Time Management",
+          description:
+            "Effective task prioritization and deadline compliance.",
+        },
+        {
+          icon: "fas fa-cogs",
+          title: "Problem Solving",
+          description:
+            "Analytical approach to find optimal solutions.",
+        },
+      ],
     },
     languageSkills: {
       title: "🌍 Languages",
@@ -367,18 +459,18 @@ const translations = {
         { name: "French", level: "Fluent", width: "85%" },
         { name: "English", level: "Upper intermediate", width: "75%" },
         { name: "Spanish", level: "Intermediate", width: "50%" },
-        { name: "German", level: "Basic notions", width: "25%" }
-      ]
-    }
-  }
+        { name: "German", level: "Basic notions", width: "25%" },
+      ],
+    },
+  },
 };
 
 const Portfolio = () => {
-  const [theme, setTheme] = useState("light"); // Removed localStorage
-  const [language, setLanguage] = useState("fr"); // État pour la langue
+  const [theme, setTheme] = useState("light");
+  const [language, setLanguage] = useState("fr");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  // Récupérer le contenu actuel basé sur la langue
+  // Contenu courant
   const currentContent = translations[language];
 
   useEffect(() => {
@@ -386,26 +478,21 @@ const Portfolio = () => {
     document.body.classList.add(theme);
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
+  const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
+  const toggleLanguage = () => setLanguage(language === "fr" ? "en" : "fr");
+  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
-  const toggleLanguage = () => {
-    setLanguage(language === "fr" ? "en" : "fr");
-  };
-
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
+  // Utilitaires d'affichage du nom "Nada Benchaou"
+  const [firstName, lastName] = currentContent.name.split(" ");
 
   return (
     <div className={`container ${theme}`}>
-      {/* 🌗 Bouton pour le mode sombre/clair */}
+      {/* 🌗 Bouton mode sombre/clair */}
       <button className="toggle-theme" onClick={toggleTheme}>
         {theme === "light" ? "🌙" : "☀️"}
       </button>
 
-      {/* 🌍 Bouton pour changer de langue */}
+      {/* 🌍 Bouton langue */}
       <button className="toggle-language" onClick={toggleLanguage}>
         {language === "fr" ? "🇬🇧 EN" : "🇫🇷 FR"}
       </button>
@@ -420,8 +507,11 @@ const Portfolio = () => {
         <img src={profileImage} alt="Benchaou Nada" className="profile-img" />
         <h1>{currentContent.name}</h1>
         <p>{currentContent.title}</p>
+
         <div className="contact-info">
-          <a href="tel:+212682291114" className="contact-link">📞 +212 6 82 29 11 14</a>
+          <a href="tel:+212682291114" className="contact-link">
+            📞 +212 6 82 29 11 14
+          </a>
           <p>
             <a href="mailto:bnadabenchaou@gmail.com" className="contact-link">
               ✉ bnadabenchaou@gmail.com
@@ -429,43 +519,104 @@ const Portfolio = () => {
           </p>
           <p>📍 {currentContent.location}</p>
         </div>
+
         <div className="social-links">
-          <a href="https://www.linkedin.com/in/nada-benchaou-105514253/" target="_blank" rel="noopener noreferrer">
-            <img src={theme === "light" ? linkedinLight : linkedinDark} alt="LinkedIn" className="social-icon" />
+          <a
+            href="https://www.linkedin.com/in/nada-benchaou-105514253/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src={theme === "light" ? linkedinLight : linkedinDark}
+              alt="LinkedIn"
+              className="social-icon"
+            />
           </a>
-        <a href="https://github.com/BNAD-A" target="_blank" rel="noopener noreferrer">
-            <img src={theme === "light" ? githubDark : githubLight} alt="GitHub" className="social-icon" />
+          <a
+            href="https://github.com/BNAD-A"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src={theme === "light" ? githubDark : githubLight}
+              alt="GitHub"
+              className="social-icon"
+            />
           </a>
         </div>
-        <a href="/BENCHAOU Nada CV FR VF.pdf" download className="download-btn">{currentContent.downloadCVFR}</a>
-        <a href="/BENCHAOU Nada CV EN VF.pdf" download className="download-btn">{currentContent.downloadCVEN}</a>
+
+        <a href="/BENCHAOU Nada CV FR VF.pdf" download className="download-btn">
+          {currentContent.downloadCVFR}
+        </a>
+        <a href="/BENCHAOU Nada CV EN VF.pdf" download className="download-btn">
+          {currentContent.downloadCVEN}
+        </a>
       </div>
 
-      {/* 📌 Barre latérale droite fixe (menu compact avec icônes) */}
+      {/* 📌 Barre latérale droite */}
       <div className={`right-sidebar ${isSidebarOpen ? "hidden" : ""}`}>
         <ul>
-          <li><a href="#about"><i className="fas fa-user"></i> {currentContent.navigation.about}</a></li>
-          <li><a href="#resume"><i className="fas fa-graduation-cap"></i> {currentContent.navigation.education}</a></li>
-          {/* ✅ LIEN MENU EXPÉRIENCE */}
-          <li><a href="#experience"><i className="fas fa-briefcase"></i> {currentContent.navigation.experience}</a></li>
-          <li><a href="#projects"><i className="fas fa-folder-open"></i> {currentContent.navigation.projects}</a></li>
-          <li><a href="#skills"><i className="fas fa-cogs"></i> {currentContent.navigation.skills}</a></li>
-          <li><a href="#soft-skills"><i className="fas fa-brain"></i> {currentContent.navigation.softSkills}</a></li>
-          <li><a href="#languages"><i className="fas fa-language"></i> {currentContent.navigation.languages}</a></li>
+          <li>
+            <a href="#about">
+              <i className="fas fa-user"></i> {currentContent.navigation.about}
+            </a>
+          </li>
+          <li>
+            <a href="#resume">
+              <i className="fas fa-graduation-cap"></i>{" "}
+              {currentContent.navigation.education}
+            </a>
+          </li>
+          <li>
+            <a href="#experience">
+              <i className="fas fa-briefcase"></i>{" "}
+              {currentContent.navigation.experience}
+            </a>
+          </li>
+          <li>
+            <a href="#projects">
+              <i className="fas fa-folder-open"></i>{" "}
+              {currentContent.navigation.projects}
+            </a>
+          </li>
+          <li>
+            <a href="#skills">
+              <i className="fas fa-cogs"></i> {currentContent.navigation.skills}
+            </a>
+          </li>
+          <li>
+            <a href="#soft-skills">
+              <i className="fas fa-brain"></i>{" "}
+              {currentContent.navigation.softSkills}
+            </a>
+          </li>
+          <li>
+            <a href="#languages">
+              <i className="fas fa-language"></i>{" "}
+              {currentContent.navigation.languages}
+            </a>
+          </li>
         </ul>
       </div>
 
-      {/* Contenu Principal */}
+      {/* Contenu principal */}
       <div className="main-content">
-        {/* 📌 Section "À propos de moi" */}
+        {/* 📌 Section À propos */}
         <section id="about" className="about-section">
-          <h2>{currentContent.about.title}</h2>
-          <div className="about-box">
-            <p>{currentContent.about.content}</p>
-          </div>
+          <div className="about-hello">{currentContent.about.hello}</div>
+
+          <h1 className="about-name">
+            {language === "fr" ? "Je suis" : "I’m"}{" "}
+            <span className="about-firstname">{firstName}</span>{" "}
+            {lastName}
+          </h1>
+
+          <h2 className="about-role">{currentContent.about.role}</h2>
+
+          <p className="about-intro">{currentContent.about.content}</p>
         </section>
 
-        {/* Section Éducation */}
+        {/* Éducation */}
         <section id="resume" className="education">
           <h2>{currentContent.education.title}</h2>
           <div className="education-container">
@@ -479,7 +630,7 @@ const Portfolio = () => {
           </div>
         </section>
 
-        {/* ✅ SECTION EXPÉRIENCE (placée entre Éducation et Projets) */}
+        {/* Expérience */}
         <section id="experience" className="experience">
           <h2>{currentContent.experience.title}</h2>
           <div className="experience-timeline">
@@ -490,13 +641,21 @@ const Portfolio = () => {
                   <h3>{exp.role}</h3>
                   <span className="xp-period">{exp.period}</span>
                 </header>
-                <p className="xp-meta"><strong>{exp.org}</strong> • {exp.location}</p>
+                <p className="xp-meta">
+                  <strong>{exp.org}</strong> • {exp.location}
+                </p>
                 <ul className="xp-bullets">
-                  {exp.bullets.map((b, i) => <li key={i}>{b}</li>)}
+                  {exp.bullets.map((b, i) => (
+                    <li key={i}>{b}</li>
+                  ))}
                 </ul>
                 {Array.isArray(exp.tech) && exp.tech.length > 0 && (
                   <div className="experience-tech">
-                    {exp.tech.map((t, i) => <span className="tech-badge" key={i}>{t}</span>)}
+                    {exp.tech.map((t, i) => (
+                      <span className="tech-badge" key={i}>
+                        {t}
+                      </span>
+                    ))}
                   </div>
                 )}
               </article>
@@ -504,28 +663,40 @@ const Portfolio = () => {
           </div>
         </section>
 
+        {/* Projets */}
         <section id="projects" className="projects">
           <h2>{currentContent.projects.title}</h2>
           <div className="projects-container">
             {currentContent.projects.items.map((proj, index) => (
               <div className="project-card" key={index}>
-                {/* Project Title with GitHub Icon Aligned Right */}
                 <div className="project-header">
                   <h3>{proj.title}</h3>
-                  <a href={proj.githubLink} target="_blank" rel="noopener noreferrer" className="github-icon">
-                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" />
+                  <a
+                    href={proj.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="github-icon"
+                  >
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                      alt="GitHub"
+                    />
                   </a>
                 </div>
-                <p><strong>{proj.date}</strong></p>
+                <p>
+                  <strong>{proj.date}</strong>
+                </p>
                 <ul>
-                  {proj.details.map((detail, i) => <li key={i}>{detail}</li>)}
+                  {proj.details.map((detail, i) => (
+                    <li key={i}>{detail}</li>
+                  ))}
                 </ul>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Section Compétences */}
+        {/* Hard Skills */}
         <section id="skills" className="skills">
           <h2>{currentContent.skills.title}</h2>
           <div className="skills-container">
@@ -538,7 +709,7 @@ const Portfolio = () => {
           </div>
         </section>
 
-        {/* 📌 Section Soft Skills */}
+        {/* Soft Skills */}
         <section id="soft-skills" className="soft-skills-section">
           <h2>{currentContent.softSkills.title}</h2>
           <div className="soft-skills-container">
@@ -552,7 +723,7 @@ const Portfolio = () => {
           </div>
         </section>
 
-        {/* Section Langues */}
+        {/* Langues */}
         <section id="languages" className="languages">
           <h2>{currentContent.languageSkills.title}</h2>
           <div className="languages-container">
@@ -560,7 +731,9 @@ const Portfolio = () => {
               <div className="language-box" key={index}>
                 <h3>{lang.name}</h3>
                 <p>{lang.level}</p>
-                <div className="progress-bar"><div className="progress" style={{ width: lang.width }}></div></div>
+                <div className="progress-bar">
+                  <div className="progress" style={{ width: lang.width }}></div>
+                </div>
               </div>
             ))}
           </div>

@@ -908,3 +908,50 @@ body.light .experience h2 { color: black; }
   .xp-period { font-size: 13px; }
 }
 
+
+/* 🌟 Nouvelle section About façon bannière */
+.about-section {
+  max-width: 900px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.about-hello {
+  display: inline-block;
+  background: #ede1d8;
+  color: #5d2e46;
+  padding: 6px 16px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.about-name {
+  font-family: "Delius Swash Caps", serif;
+  font-size: 48px;
+  margin: 10px 0 0;
+  color: #2c3e50;
+}
+
+.about-firstname {
+  color: #bca3ac;
+}
+
+.about-role {
+  font-size: 20px;
+  font-weight: 500;
+  color: #6c4157;
+  margin: 10px 0 25px;
+}
+
+.about-intro {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #2c3e50;
+  text-align: justify;
+  background: #f8f9fa;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
