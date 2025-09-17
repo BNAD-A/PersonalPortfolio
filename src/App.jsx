@@ -27,7 +27,7 @@ const translations = {
     },
     about: {
       title: "👤À propos de moi",
-      content: "  Étudiante en troisième année de cycle d’ingénieur en digital de santé, je suis profondément inspirée par les opportunités qu’offrent les technologies émergentes. Mon parcours me permet d’explorer non seulement les innovations numériques qui transforment le secteur médical, mais aussi toute forme de progrès technologique qui repousse les limites de ce qui est possible. \nToujours curieuse et motivée, je cherche à participer à des projets pionniers qui façonnent l’avenir, en particulier dans les \ndomaines où santé et innovation s’entrecroisent. "
+      content: "  Élève ingénieure en Santé Digitale, passionnée par l’innovation et les technologies émergentes appliquées à la santé. Je maîtrise les concepts clés de l’intelligence artificielle, du machine learning et du deep learning, ainsi que le développement d’applications web et la gestion de bases de données. Curieuse, proactive et orientée résultats, je m’engage à concevoir des solutions numériques fiables et impactantes pour transformer les pratiques de santé."
     },
     education: {
       title: "🎓 Éducation",
