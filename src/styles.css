@@ -955,3 +955,29 @@ body.light .experience h2 { color: black; }
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
+/* 📱 Responsive design : centrer la sidebar sur mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .sidebar .profile-img {
+    margin: 0 auto 1rem auto;
+    display: block;
+  }
+
+  .sidebar .contact-info {
+    text-align: center;
+  }
+
+  .sidebar .social-links {
+    justify-content: center;
+  }
+}
+
