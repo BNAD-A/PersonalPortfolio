@@ -53,7 +53,7 @@ const translations = {
     location: "Casablanca, Maroc",
     downloadCVFR: "📥 Télécharger CV (FR)",
     downloadCVEN: "📥 Télécharger CV (EN)",
-    contact: "☰ Contact",
+    contact: "☰",
     navigation: {
       about: "À propos",
       education: "Éducation",
@@ -113,7 +113,7 @@ const translations = {
           bullets: [
             "Développement d’un Système de Détection Automatique de Rétinopathie Diabétique basé sur le Deep Learning.",
           ],
-          tech: ["Python", "TensorFlow/Keras", "Pandas", "NumPy", "Git"],
+          tech: ["Python", "TensorFlow/Keras", "Pandas", "NumPy"],
         },
         {
           role: "Stagiaire Observatrice",
@@ -282,7 +282,7 @@ const translations = {
     location: "Casablanca, Morocco",
     downloadCVFR: "📥 Download CV (FR)",
     downloadCVEN: "📥 Download CV (EN)",
-    contact: "☰ Contact",
+    contact: "☰",
     navigation: {
       about: "About",
       education: "Education",

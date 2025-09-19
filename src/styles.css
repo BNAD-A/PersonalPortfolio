@@ -968,46 +968,63 @@ body.light .experience h2 { color: black; }
   color: #f1f1f1;      /* Texte clair */
   box-shadow: 0 4px 12px rgba(0,0,0,0.6);
 }
-/* Chip qui garantit le contraste en clair/sombre et un bon tap target mobile */
-.tool-chip {
-  --chip-bg: #ffffff;
-  --chip-brd: rgba(0,0,0,0.08);
-  --chip-shadow: 0 1px 2px rgba(0,0,0,0.08);
-  width: 34px;
-  height: 34px;
-  min-width: 34px;
-  min-height: 34px;
-  border-radius: 10px;
-  background: var(--chip-bg);
-  border: 1px solid var(--chip-brd);
-  box-shadow: var(--chip-shadow);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
-}
-.tool-chip:hover { transform: translateY(-1px); }
+/* ── Barre droite FIXE mais NON intrusive sur mobile/tablette ─────────── */
+@media (max-width: 992px), (pointer: coarse) {
+  :root{
+    --rs-w: 84px;            /* largeur de la barre droite */
+    --rs-top: 110px;         /* distance depuis le haut (sous les boutons) */
+  }
 
-/* Dark mode: fond légèrement clair sur fond sombre pour garder le contraste des logos colorés */
-.dark .tool-chip {
-  --chip-bg: #1e1e1e;
-  --chip-brd: rgba(255,255,255,0.10);
-  --chip-shadow: 0 1px 3px rgba(0,0,0,0.4);
-}
+  /* La barre reste à droite, mais on réserve de la place pour elle */
+  .right-sidebar{
+    position: fixed;
+    top: var(--rs-top);
+    right: 10px;
+    left: auto;
+    transform: none;
+    width: var(--rs-w);
+    height: auto;
+    max-height: calc(100dvh - var(--rs-top) - 16px);
+    overflow: auto;                     /* scroll interne si nécessaire */
+    padding: 10px 8px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.85); /* semi-transparent */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    z-index: 900;                       /* sous les boutons */
+    touch-action: pan-y;                /* ne bloque pas le scroll vertical */
+  }
+  .dark .right-sidebar{
+    background: rgba(28,28,28,0.70);
+  }
 
-/* Taille du logo à l'intérieur (reste net car SVG) */
-.tool-icon {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
-  image-rendering: -webkit-optimize-contrast;
-}
+  .right-sidebar ul{
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+  }
+  .right-sidebar ul li{ margin: 0; }
+  .right-sidebar ul li a{
+    width: 48px; height: 48px;          /* bon tap target */
+    border-radius: 14px;
+    background: rgba(248,249,250,0.95);
+  }
+  .dark .right-sidebar ul li a{
+    background: rgba(60,60,60,0.85);
+  }
 
-/* Accessibilité mobile: plus grand tap target sur écrans tactiles */
-@media (pointer: coarse) {
-  .tool-chip { width: 40px; height: 40px; border-radius: 12px; }
-  .tool-icon { width: 24px; height: 24px; }
-}
+  /* ✅ Réserve l'espace à droite : le contenu ne passe plus dessous */
+  .main-content{
+    margin-right: calc(var(--rs-w) + 34px) !important; /* largeur barre + marge */
+  }
 
-/* Option: léger boost de visibilité des logos en dark sans dénaturer les couleurs */
-.dark .tool-icon { filter: brightness(1.15) contrast(1.05); }
+  /* Les boutons restent au-dessus de tout */
+  .toggle-theme,
+  .toggle-language,
+  .toggle-sidebar-mobile{
+    z-index: 1200;
+  }
+}
