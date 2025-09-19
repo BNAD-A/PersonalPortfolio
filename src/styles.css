@@ -498,6 +498,7 @@ body.light .about-box:hover {
   margin-bottom: 15px;
   color: #f8f9fa;
 }
+body.light .soft-skills-section h2{ color: black; }
 
 /* Conteneur des Soft Skills */
 .soft-skills-container {
@@ -539,10 +540,6 @@ body.light .about-box:hover {
 .soft-skill-box p {
   font-size: 14px;
   color: #555;
-}
-
-body.light .soft-skills-section h2{
-  color: black;
 }
 
 /* 💡 Section Langues */
@@ -591,166 +588,82 @@ body.light .soft-skills-section h2{
 }
 
 h1, h2 {
-    font-family: "Delius Swash Caps", serif;
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Delius Swash Caps", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* 🌟 Section "À propos de moi" */
 .about-section {
-  max-width: 1000px;
-  margin: 50px auto;
-  text-align: center;
-}
-
-.about-section h2 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 15px;
-  color: #f8f9fa;
-}
-
-.about-box {
-  background: #f8f9fa;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  text-align: left;
-  font-size: 16px;
-  color: #2c3e50;
-  line-height: 1.6;
-  text-align: justify;
-}
-
-body.light .about-section h2{
-  color: black;
-}
-
-/* Flexbox to align title left and GitHub icon right */
-.project-header {
-  display: flex;
-  justify-content: space-between; /* Pushes elements to opposite sides */
-  align-items: center;
-}
-
-/* GitHub Icon Styling */
-.github-icon img {
-  width: 24px; /* Adjust size */
-  height: 24px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.github-icon:hover img {
-  transform: scale(1.1); /* Slight zoom effect */
-}
-
-/* 🌟 Barre latérale droite fixe et stylisée - Mode sombre */
-.dark .right-sidebar {
-  background: #1f1f1f;
-  color: white;
-}
-
-.dark .right-sidebar ul li a {
-  background: #2a2a2a;
-  color: #d0ada7;
-}
-
-.dark .right-sidebar ul li a:hover {
-  background: #6c4157;
-  color: white;
-}
-
-/* 🌟 Liens de contact */
-.contact-info {
-  margin: 20px 0;
-  text-align: center;
-}
-
-.contact-info p {
-  margin: 5px 0;
-  font-size: 14px;
-}
-
-/* 📱 Responsive pour mobile - ajustements boutons */
-@media (max-width: 768px) {
-  .main-content {
-    margin-right: 0;
-  }
-  
-  .right-sidebar {
-    display: none; /* Masquer la barre de droite sur mobile */
-  }
-}
-/* === Timeline Éducation === */
-.education-container {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px;
-  justify-content: center;
   max-width: 900px;
-  margin: 0 auto;
-  padding-left: 20px;
+  margin: 60px auto;
+  text-align: center;
 }
 
-.education-container::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: linear-gradient(180deg, #ede1d8, #bca3ac, #5d2e46);
-  border-radius: 4px;
-  opacity: 0.6;
-  transform: translateX(-50%);
-}
-
-.education-box {
-  position: relative;
-  width: min(560px, 92%);
-  margin: 0 auto;
+.about-hello {
+  display: inline-block;
   background: #ede1d8;
-  padding: 18px 20px;
-  border-radius: 16px;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
-  text-align: left;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.3s;
-}
-
-.education-box::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: -8px;
-  transform: translateX(-50%);
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #5d2e46;
-  box-shadow: 0 0 0 4px #fff, 0 6px 12px rgba(0,0,0,0.2);
-}
-
-.education-box:hover {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 16px 32px rgba(93, 46, 70, 0.25);
-}
-
-.education-box h3 {
-  font-size: 18px;
   color: #5d2e46;
-  margin: 0 0 6px;
-}
-
-.education-box p {
-  font-size: 16px;
-  font-weight: 700;
-  margin: 4px 0;
-}
-
-.education-box span {
+  padding: 6px 16px;
+  border-radius: 25px;
   font-size: 14px;
-  color: gray;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.about-name {
+  font-family: "Delius Swash Caps", serif;
+  font-size: 48px;
+  margin: 10px 0 0;
+  color: #2c3e50;
+}
+
+.about-firstname {
+  color: #bca3ac;
+}
+
+.about-role {
+  font-size: 20px;
+  font-weight: 500;
+  color: #6c4157;
+  margin: 10px 0 25px;
+}
+
+.about-intro {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #2c3e50;
+  text-align: justify;
+  background: #f8f9fa;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* 📱 Responsive design : centrer la sidebar sur mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .sidebar .profile-img {
+    margin: 0 auto 1rem auto;
+    display: block;
+  }
+
+  .sidebar .contact-info {
+    text-align: center;
+  }
+
+  .sidebar .social-links {
+    justify-content: center;
+  }
 }
 
 /* =========================
@@ -908,7 +821,6 @@ body.light .experience h2 { color: black; }
   .xp-period { font-size: 13px; }
 }
 
-
 /* 🌟 Nouvelle section About façon bannière */
 .about-section {
   max-width: 900px;
@@ -955,6 +867,7 @@ body.light .experience h2 { color: black; }
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
+
 /* 📱 Responsive design : centrer la sidebar sur mobile */
 @media (max-width: 768px) {
   .sidebar {
@@ -981,3 +894,120 @@ body.light .experience h2 { color: black; }
   }
 }
 
+/* === Icônes des outils (nouveau) === */
+.icon-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+  align-items: center;
+}
+
+.tool-icon {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1));
+  transition: transform .15s ease, filter .15s ease;
+}
+
+.tool-icon:hover {
+  transform: translateY(-2px) scale(1.05);
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.18));
+}
+
+/* Meilleur contraste en dark mode */
+.dark .tool-icon {
+  filter: brightness(1.05) drop-shadow(0 1px 1px rgba(0,0,0,0.25));
+}
+/* Image de couverture projet (si un jour tu ajoutes une vraie cover) */
+.project-cover {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+}
+
+/* Icône GitHub dans l’entête de carte */
+.project-header .github-icon img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease-in-out;
+}
+.project-header .github-icon:hover img {
+  transform: scale(1.1);
+}
+
+/* ✅ Icônes d’outils : taille fixe, jamais étirées */
+.project-card .tool-icon {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1));
+  transition: transform .15s ease, filter .15s ease;
+}
+.project-card .tool-icon:hover {
+  transform: translateY(-2px) scale(1.05);
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.18));
+}
+
+/* === Amélioration lisibilité Dark Mode (About Section) === */
+.dark .about-name {
+  color: #ffffff; /* Nom en blanc pur */
+}
+
+.dark .about-firstname {
+  color: #f5a7c0; /* Prénom en rose clair contrasté */
+}
+
+.dark .about-role {
+  color: #e0e0e0; /* Texte secondaire gris clair */
+}
+
+.dark .about-intro {
+  background: #1e1e1e; /* Fond sombre uniforme */
+  color: #f1f1f1;      /* Texte clair */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+/* Chip qui garantit le contraste en clair/sombre et un bon tap target mobile */
+.tool-chip {
+  --chip-bg: #ffffff;
+  --chip-brd: rgba(0,0,0,0.08);
+  --chip-shadow: 0 1px 2px rgba(0,0,0,0.08);
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  min-height: 34px;
+  border-radius: 10px;
+  background: var(--chip-bg);
+  border: 1px solid var(--chip-brd);
+  box-shadow: var(--chip-shadow);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.tool-chip:hover { transform: translateY(-1px); }
+
+/* Dark mode: fond légèrement clair sur fond sombre pour garder le contraste des logos colorés */
+.dark .tool-chip {
+  --chip-bg: #1e1e1e;
+  --chip-brd: rgba(255,255,255,0.10);
+  --chip-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+/* Taille du logo à l'intérieur (reste net car SVG) */
+.tool-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Accessibilité mobile: plus grand tap target sur écrans tactiles */
+@media (pointer: coarse) {
+  .tool-chip { width: 40px; height: 40px; border-radius: 12px; }
+  .tool-icon { width: 24px; height: 24px; }
+}
+
+/* Option: léger boost de visibilité des logos en dark sans dénaturer les couleurs */
+.dark .tool-icon { filter: brightness(1.15) contrast(1.05); }

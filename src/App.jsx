@@ -6,6 +6,45 @@ import githubLight from "./assets/github-light.png"; // Icône GitHub mode clair
 import githubDark from "./assets/github-dark.png"; // Icône GitHub mode sombre
 import "./styles.css";
 
+/* === ICONS CATALOGUE (SVG via devicon / simple-icons CDN) === */
+const ICONS = {
+  python: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  tensorflow: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
+  keras: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/keras/keras-original.svg",
+  numpy: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg",
+  pandas: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg",
+  scikitlearn: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg",
+  opencv: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg",
+  git: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+  github: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+  react: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  vercel: "https://api.iconify.design/simple-icons:vercel.svg",
+  html: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg",
+  css: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg",
+  javascript: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+  mysql: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+  firebase: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+  docker: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+  aws: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg",
+  arduino: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg",
+  raspberrypi: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg",
+  blynk: "https://api.iconify.design/simple-icons:blynk.svg",
+};
+
+/* Composant utilitaire de rangée d’icônes */
+const IconRow = ({ stack = [] }) => (
+  <div className="icon-row" aria-label="Outils utilisés">
+    {stack.map((k) => (
+      ICONS[k] ? (
+        <span key={k} className="tool-chip" title={k} aria-label={k}>
+          <img src={ICONS[k]} alt={k} className="tool-icon" loading="lazy" />
+        </span>
+      ) : null
+    ))}
+  </div>
+);
+
+
 // 🌍 Contenu multilingue (ajout des clés about.hello et about.role)
 const translations = {
   fr: {
@@ -66,7 +105,7 @@ const translations = {
     experience: {
       title: "💼 Expérience",
       items: [
-                {
+        {
           role: "Stagiaire Technique – IA & Systèmes d'Information",
           org: "CHU Oujda – Service Informatique & SI",
           location: "Oujda, Maroc",
@@ -301,7 +340,7 @@ const translations = {
           bullets: [
             "Developed an automatic Diabetic Retinopathy detection system using Deep Learning.",
           ],
-          tech: ["Python", "TensorFlow/Keras", "Pandas", "NumPy", "Git"],
+          tech: ["Python", "TensorFlow/Keras", "Pandas", "NumPy"],
         },
         {
           role: "Observation Intern",
@@ -315,7 +354,6 @@ const translations = {
           ],
           tech: [],
         },
-        
       ],
     },
     projects: {
@@ -486,6 +524,44 @@ const Portfolio = () => {
   // Utilitaires d'affichage du nom "Nada Benchaou"
   const [firstName, lastName] = currentContent.name.split(" ");
 
+  /* === Association projet -> stack d’icônes === */
+  const projectStacks = {
+    "Double Regard : Double CBAM pour la détection de la rétinopathie diabétique": ["python","tensorflow","keras","numpy","pandas","scikitlearn"],
+    "Double Vision: Double CBAM for Diabetic Retinopathy Detection": ["python","tensorflow","keras","numpy","pandas","scikitlearn","opencv"],
+
+    "Eklia – Assistant IA pour radiologues détection et rédaction automatique de rapports d'IRM cérébrales": ["python","tensorflow","numpy","pandas","opencv","scikitlearn"],
+    "Eklia – AI Assistant for Radiologists: Brain MRI Detection and Automatic Report Writing": ["python","tensorflow","numpy","pandas","opencv","scikitlearn"],
+
+    "Skinia – Détection du Cancer de la Peau par IA": ["python","tensorflow","keras","numpy","pandas","scikitlearn","opencv"],
+    "Skinia – AI-Based Skin Cancer Detection": ["python","tensorflow","keras","numpy","pandas","scikitlearn","opencv"],
+
+    "DonSang – Plateforme de Matching Donneurs/Receveurs": ["python","mysql","javascript","html","css"],
+    "DonSang – Donor/Recipient Matching Platform": ["python","mysql","javascript","html","css"],
+
+    "AI Mental Health Chatbot": ["python","scikitlearn","numpy","pandas"],
+    "Breast Cancer Data Analysis": ["python","scikitlearn","numpy","pandas"],
+    "IoT Multiparametric Health Monitor": ["arduino","raspberrypi","javascript","html","css"],
+    "CV Portfolio": ["react","javascript","css","vercel"],
+  };
+
+  const getProjectStack = (title) => projectStacks[title] || [];
+
+  /* === Mapping libre des badges “tech” d’une expérience -> icônes === */
+  const mapTechToIconKey = (t) => {
+    const key = (t || "").toLowerCase().replace(/[^\w]/g, "");
+    if (key.includes("tensorflow")) return "tensorflow";
+    if (key.includes("keras")) return "keras";
+    if (key.includes("opencv")) return "opencv";
+    if (key.includes("scikitlearn") || key.includes("sklearn")) return "scikitlearn";
+    if (key.includes("numpy")) return "numpy";
+    if (key.includes("pandas")) return "pandas";
+    if (key === "python") return "python";
+    if (key.includes("git") && !key.includes("github")) return "git";
+    if (key.includes("github")) return "github";
+    if (["html","css","javascript","mysql","firebase","docker","aws","arduino","raspberrypi","react","vercel"].includes(key)) return key;
+    return null;
+  };
+
   return (
     <div className={`container ${theme}`}>
       {/* 🌗 Bouton mode sombre/clair */}
@@ -518,7 +594,6 @@ const Portfolio = () => {
               ✉ bnadabenchaou@gmail.com
             </a>
           </p>
-          <p>📍 {currentContent.location}</p>
         </div>
 
         <div className="social-links">
@@ -650,6 +725,8 @@ const Portfolio = () => {
                     <li key={i}>{b}</li>
                   ))}
                 </ul>
+
+                {/* Badges texte (existants) */}
                 {Array.isArray(exp.tech) && exp.tech.length > 0 && (
                   <div className="experience-tech">
                     {exp.tech.map((t, i) => (
@@ -658,6 +735,15 @@ const Portfolio = () => {
                       </span>
                     ))}
                   </div>
+                )}
+
+                {/* 🔥 Rangée d’icônes en miroir des badges “tech” */}
+                {Array.isArray(exp.tech) && exp.tech.length > 0 && (
+                  <IconRow
+                    stack={exp.tech
+                      .map(mapTechToIconKey)
+                      .filter(Boolean)}
+                  />
                 )}
               </article>
             ))}
@@ -692,6 +778,9 @@ const Portfolio = () => {
                     <li key={i}>{detail}</li>
                   ))}
                 </ul>
+
+                {/* 🔥 Rangée d’icônes associée au projet */}
+                <IconRow stack={getProjectStack(proj.title)} />
               </div>
             ))}
           </div>
