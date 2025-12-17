@@ -8,6 +8,14 @@ import "./styles.css";
 
 /* === ICONS CATALOGUE (SVG via devicon / simple-icons CDN) === */
 const ICONS = {
+  c: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
+  cplusplus: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+  matlab: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg",
+
+  office: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftoffice/microsoftoffice-original.svg",
+  excel: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftoffice/microsoftoffice-original.svg",
+
+  spark: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachespark/apachespark-original.svg",
   python: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
   tensorflow: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
   keras: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/keras/keras-original.svg",
@@ -29,6 +37,18 @@ const ICONS = {
   arduino: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg",
   raspberrypi: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg",
   blynk: "https://api.iconify.design/simple-icons:blynk.svg",
+  kafka: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg",
+  airflow: "https://api.iconify.design/logos:airflow-icon.svg",
+  powerbi: "https://api.iconify.design/simple-icons:powerbi.svg",
+  pytorch: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
+  hadoop: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hadoop/hadoop-original.svg",
+  fastapi: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
+  kafka: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg",
+  airflow: "https://api.iconify.design/logos:airflow-icon.svg",
+  powerbi: "https://api.iconify.design/simple-icons:powerbi.svg",
+  pytorch: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
+  hadoop: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hadoop/hadoop-original.svg",
+  fastapi: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
 };
 
 /* Composant utilitaire de rangée d’icônes */
@@ -133,6 +153,17 @@ const translations = {
       title: "🚀 Projets",
       items: [
         {
+          title: "Système Intelligent de Dispatching Médical en Temps Réel",
+          date: "Décembre 2025",
+            details: [
+              "Simulation d’une plateforme Big Data de gestion des urgences médicales en temps réel.",
+              "Collecte et traitement des flux d’ambulances et de capacités hospitalières via Apache Kafka.",
+              "Moteur de dispatching optimisant l’affectation des ambulances selon la distance et la saturation.",
+              "Analyse et visualisation des performances avec Power BI."
+            ],
+          githubLink: "https://github.com/BNAD-A/RealTime-Medical-Dispatch-System",
+        },
+        {
           title:
             "Double Regard : Double CBAM pour la détection de la rétinopathie diabétique",
           date: "Juil 2025 — Août 2025",
@@ -221,14 +252,38 @@ const translations = {
     skills: {
       title: "💡 Hard Skills",
       items: [
-        { category: "Data Science", skills: "AI, ML, Data Mining" },
-        { category: "Langage de programmation", skills: "Python, C, C++, MATLAB, PHP" },
-        { category: "Data Base", skills: "MySQL, SQL, Firebase" },
-        { category: "Developpement WEB", skills: "HTML, CSS, JavaScript" },
-        { category: "Cloud Computing", skills: "Docker, AWS" },
-        { category: "Systèmes embarqués et IoT", skills: "Arduino, Raspberry Pi" },
-        { category: "Office 365", skills: "" },
-      ],
+        {
+          category: "Data Science & IA",
+          skills: "Machine Learning, Deep Learning, Data Mining",
+          stack: ["python", "scikitlearn", "tensorflow", "pytorch"]
+        },
+        {
+          category: "Frameworks",
+          skills: "PyTorch, TensorFlow / Keras, Scikit-learn",
+          stack: ["pytorch", "tensorflow", "keras", "scikitlearn"]
+        },
+        {
+          category: "Langages de programmation",
+          skills: "Python, C / C++, MATLAB",
+          stack: ["python","c","cplusplus","matlab"]
+        },
+        {
+          category: "Bases de données & Big Data",
+          skills: "SQL, MySQL, Hadoop, Apache Spark, Apache Kafka, Apache Airflow",
+          stack: ["mysql", "hadoop", "kafka", "airflow", "spark"]
+        },
+        {
+          category: "Développement Web & Déploiement",
+          skills: "HTML, CSS, JavaScript, FastAPI",
+          stack: ["html", "css", "javascript", "fastapi"]
+        },
+        {
+          category: "Outils & Productivité",
+          skills: "GitHub, Office 365, Power BI",
+          stack: ["github", "powerbi"]
+        }
+      ]
+
     },
     softSkills: {
       title: "🎯 Soft Skills",
@@ -360,6 +415,17 @@ const translations = {
       title: "🚀 Projects",
       items: [
         {
+          title: "Real-Time Intelligent Medical Dispatch System",
+          date: "May 2025 — June 2025",
+          details: [
+            "Simulation of a Big Data platform for real-time medical emergency management.",
+            "Real-time data ingestion and processing of ambulance and hospital capacity streams using Apache Kafka.",
+            "Dispatching engine optimizing ambulance assignment based on distance and hospital saturation.",
+            "Performance analysis and visualization using Power BI."
+          ],
+          githubLink: "https://github.com/BNAD-A/RealTime-Medical-Dispatch-System",
+        },
+        {
           title: "Double Vision: Double CBAM for Diabetic Retinopathy Detection",
           date: "Jul 2025 — Aug 2025",
           details: [
@@ -447,14 +513,39 @@ const translations = {
     skills: {
       title: "💡 Hard Skills",
       items: [
-        { category: "Data Science", skills: "AI, ML, Data Mining" },
-        { category: "Programming Languages", skills: "Python, C, C++, MATLAB, PHP" },
-        { category: "Database", skills: "MySQL, SQL, Firebase" },
-        { category: "Web Development", skills: "HTML, CSS, JavaScript" },
-        { category: "Cloud Computing", skills: "Docker, AWS" },
-        { category: "Embedded Systems & IoT", skills: "Arduino, Raspberry Pi" },
-        { category: "Office 365", skills: "" },
-      ],
+        {
+          category: "Data Science & AI",
+          skills: "Machine Learning, Deep Learning, Data Mining",
+          stack: ["python", "scikitlearn", "tensorflow", "pytorch"]
+        },
+        {
+          category: "Frameworks",
+          skills: "PyTorch, TensorFlow / Keras, Scikit-learn",
+          stack: ["pytorch", "tensorflow", "keras", "scikitlearn"]
+        },
+        {
+          category: "Programming Languages",
+          skills: "Python, C / C++, MATLAB",
+          stack: ["python", "c", "cplusplus", "matlab"]
+        },
+        {
+          category: "Databases & Big Data",
+          skills: "SQL, MySQL, Hadoop, Apache Spark, Apache Kafka, Apache Airflow",
+          stack: ["mysql", "hadoop", "spark", "kafka", "airflow"]
+        },
+        {
+          category: "Web Development & Deployment",
+          skills: "HTML, CSS, JavaScript, FastAPI",
+          stack: ["html", "css", "javascript", "fastapi"]
+        },
+        {
+          category: "Tools & Productivity",
+          skills: "GitHub, Office 365, Power BI",
+          stack: ["github", "powerbi"]
+        }
+      ]
+
+
     },
     softSkills: {
       title: "🎯 Soft Skills",
@@ -526,6 +617,9 @@ const Portfolio = () => {
 
   /* === Association projet -> stack d’icônes === */
   const projectStacks = {
+    "Système Intelligent de Dispatching Médical en Temps Réel": ["python","kafka","airflow","powerbi"],
+    "Real-Time Intelligent Medical Dispatch System": ["python","kafka","airflow","powerbi"],
+
     "Double Regard : Double CBAM pour la détection de la rétinopathie diabétique": ["python","tensorflow","keras","numpy","pandas","scikitlearn"],
     "Double Vision: Double CBAM for Diabetic Retinopathy Detection": ["python","tensorflow","keras","numpy","pandas","scikitlearn","opencv"],
 
@@ -791,10 +885,12 @@ const Portfolio = () => {
           <h2>{currentContent.skills.title}</h2>
           <div className="skills-container">
             {currentContent.skills.items.map((skill, index) => (
-              <div className="skill-box" key={index}>
-                <h4>{skill.category}</h4>
-                <p>{skill.skills}</p>
-              </div>
+            <div className="skill-box" key={index}>
+              <h4>{skill.category}</h4>
+              <p>{skill.skills}</p>
+
+              {skill.stack && <IconRow stack={skill.stack} />}
+            </div>
             ))}
           </div>
         </section>
