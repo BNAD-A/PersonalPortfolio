@@ -182,7 +182,7 @@ const translations = {
             "Génération de rapports médicaux avec NLP & OCR.",
             "Interface web avec visualisation, validation et édition des rapports.",
           ],
-          githubLink: "https://github.com/BNAD-A/Eklia",
+          githubLink: "https://github.com/BNAD-A/BrainMRI_Analysis",
         },
         {
           title: "Skinia – Détection du Cancer de la Peau par IA",
@@ -443,7 +443,7 @@ const translations = {
             "Medical report generation with NLP & OCR.",
             "Web interface with visualization, validation and report editing.",
           ],
-          githubLink: "https://github.com/BNAD-A/Eklia",
+          githubLink: "https://github.com/BNAD-A/BrainMRI_Analysis",
         },
         {
           title: "Skinia – AI-Based Skin Cancer Detection",
