@@ -715,10 +715,10 @@ const Portfolio = () => {
           </a>
         </div>
 
-        <a href="/BENCHAOU Nada CV FR VF.pdf" download className="download-btn">
+        <a href="/BENCHAOU Nada CV FR.pdf" download className="download-btn">
           {currentContent.downloadCVFR}
         </a>
-        <a href="/BENCHAOU Nada CV EN VF.pdf" download className="download-btn">
+        <a href="/BENCHAOU Nada CV EN.pdf" download className="download-btn">
           {currentContent.downloadCVEN}
         </a>
       </div>
