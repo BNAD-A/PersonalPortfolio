@@ -153,6 +153,31 @@ const translations = {
       title: "🚀 Projets",
       items: [
         {
+          title: "Vitalia+ — La continuité des soins, enfin connectée",
+          date: "2025",
+          details: [
+            "Solution de santé numérique tout-en-un dédiée au suivi des patients atteints de maladies chroniques (diabète, hypertension, asthme, cholestérol…).",
+            "Création d’un écosystème digital connecté réunissant patients, médecins, pharmacies et laboratoires.",
+            "Suivi continu et centralisé du parcours de soins pour améliorer la coordination médicale dans le temps.",
+            "Intégration de téléconsultations, suivi biologique à distance et monitoring via objets connectés.",
+            "Prototype frontend mettant en évidence les dashboards métiers, les parcours utilisateurs et l’ergonomie globale."
+          ],
+          githubLink: "https://github.com/BNAD-A/VitaliaPlus"
+        },
+
+        {
+          title: "FineMed-LLM — Assistant médical prudent (LLM fine-tuné)",
+          date: "2025",
+          details: [
+            "Plateforme web permettant d’interagir avec un LLM médical fine-tuné, conçu pour fournir des réponses prudentes et sûres (sans diagnostic).",
+            "Réduction des formulations à risque : fausse certitude, ton alarmiste ou rassurant inadapté.",
+            "Fine-tuning supervisé (QLoRA) pour renforcer l’incertitude explicite, les limites du modèle et l’orientation médicale appropriée.",
+            "API Flask + interface web pour tester librement des cas cliniques et des scénarios sensibles.",
+            "Architecture orientée évaluation et amélioration continue du comportement du modèle."
+          ],
+          githubLink: "https://github.com/BNAD-A/-FineMed-LLM"
+        },
+        {
           title: "Système Intelligent de Dispatching Médical en Temps Réel",
           date: "Décembre 2025",
             details: [
@@ -415,6 +440,32 @@ const translations = {
       title: "🚀 Projects",
       items: [
         {
+          title: "Vitalia+ — Connected Continuity of Care",
+          date: "2025",
+          details: [
+            "All-in-one digital health solution dedicated to chronic disease management (diabetes, hypertension, asthma, cholesterol…).",
+            "Integrated digital ecosystem connecting patients, physicians, pharmacies and laboratories.",
+            "Continuous and centralized care pathway tracking to improve long-term medical coordination.",
+            "Integration of teleconsultations, remote biological monitoring and connected health devices.",
+            "Frontend prototype showcasing dashboards, user journeys and overall platform UX."
+          ],
+          githubLink: "https://github.com/BNAD-A/VitaliaPlus"
+        },
+
+        {
+          title: "FineMed-LLM — Prudent Medical Assistant (Fine-Tuned LLM)",
+          date: "2025",
+          details: [
+            "Web platform to interact with a fine-tuned medical LLM designed to deliver cautious and safe responses (no diagnosis).",
+            "Mitigation of risky behaviors such as false certainty and inappropriate reassuring or alarming tones.",
+            "Supervised fine-tuning (QLoRA) to enforce explicit uncertainty, model limitations and proper medical referral.",
+            "Flask API and web interface for free-form clinical case testing and sensitive scenario evaluation.",
+            "Architecture focused on continuous model behavior evaluation and improvement."
+          ],
+          githubLink: "https://github.com/BNAD-A/-FineMed-LLM"
+        },
+
+        {
           title: "Real-Time Intelligent Medical Dispatch System",
           date: "May 2025 — June 2025",
           details: [
@@ -617,6 +668,28 @@ const Portfolio = () => {
 
   /* === Association projet -> stack d’icônes === */
   const projectStacks = {
+    "Vitalia+ — La continuité des soins, enfin connectée": [
+  "react",
+  "javascript",
+  "html",
+  "css"
+],
+"Vitalia+ — Connected Continuity of Care": [
+  "react",
+  "javascript",
+  "html",
+  "css"
+],
+    "FineMed-LLM — Assistant médical prudent (LLM fine-tuné)": [
+      "python",
+      "pytorch",
+      "docker"
+    ],
+    " FineMed-LLM — Prudent Medical Assistant (Fine-Tuned LLM)": [
+  "python",
+  "pytorch",
+  "docker"
+],
     "Système Intelligent de Dispatching Médical en Temps Réel": ["python","kafka","airflow","powerbi"],
     "Real-Time Intelligent Medical Dispatch System": ["python","kafka","airflow","powerbi"],
 
