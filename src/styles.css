@@ -1302,6 +1302,9 @@ body.light .experience h2 { color: black; }
   width: 230px;
   background: linear-gradient(180deg, #ede1d8 0%, #ffffff 24%);
   gap: 2px;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 .dark .sidebar {
   background: linear-gradient(180deg, #2a2028 0%, #1f1f1f 24%);
