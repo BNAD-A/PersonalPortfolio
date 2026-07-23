@@ -1002,26 +1002,19 @@ const Portfolio = () => {
 
       {/* 📌 Sidebar gauche */}
       <div className={`sidebar ${isSidebarOpen ? "expanded" : ""}`}>
-        <img src={profileImage} alt="Benchaou Nada" className="profile-img" />
-        <h1>{currentContent.name}</h1>
-        <p>{currentContent.title}</p>
-
-        <div className="contact-info">
-          <a href="tel:+212682291114" className="contact-link">
-            📞 +212 6 82 29 11 14
-          </a>
-          <p>
-            <a href="mailto:bnadabenchaou@gmail.com" className="contact-link">
-              ✉ bnadabenchaou@gmail.com
-            </a>
-          </p>
+        <div className="profile-wrap">
+          <img src={profileImage} alt="Benchaou Nada" className="profile-img" />
         </div>
+
+        <h1>{currentContent.name}</h1>
+        <span className="sidebar-title">{currentContent.title}</span>
 
         <div className="social-links">
           <a
             href="https://www.linkedin.com/in/nada-benchaou-105514253/"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="LinkedIn"
           >
             <img
               src={theme === "light" ? linkedinLight : linkedinDark}
@@ -1033,6 +1026,7 @@ const Portfolio = () => {
             href="https://github.com/BNAD-A"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="GitHub"
           >
             <img
               src={theme === "light" ? githubDark : githubLight}
@@ -1042,12 +1036,31 @@ const Portfolio = () => {
           </a>
         </div>
 
-        <a href="/BENCHAOU Nada CV FR.pdf" download className="download-btn">
-          {currentContent.downloadCVFR}
-        </a>
-        <a href="/BENCHAOU Nada CV EN.pdf" download className="download-btn">
-          {currentContent.downloadCVEN}
-        </a>
+        <div className="sidebar-divider"></div>
+
+        <div className="contact-info">
+          <a href="tel:+212682291114" className="contact-link">
+            <span className="contact-ic">📞</span>
+            +212 6 82 29 11 14
+          </a>
+          <a href="mailto:bnadabenchaou@gmail.com" className="contact-link">
+            <span className="contact-ic">✉</span>
+            bnadabenchaou@gmail.com
+          </a>
+        </div>
+
+        <div className="cv-buttons">
+          <a
+            href="/BENCHAOU Nada CV FR.pdf"
+            download
+            className="download-btn primary"
+          >
+            {currentContent.downloadCVFR}
+          </a>
+          <a href="/BENCHAOU Nada CV EN.pdf" download className="download-btn">
+            {currentContent.downloadCVEN}
+          </a>
+        </div>
       </div>
 
       {/* 📌 Barre latérale droite */}

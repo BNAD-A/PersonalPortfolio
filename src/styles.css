@@ -212,22 +212,58 @@ body {
   text-decoration: none;
 }
 
+.cv-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin-top: 18px;
+}
 .download-btn {
+  display: block;
+  text-align: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
   text-decoration: none;
-  color: black;
-}
-
-.download-btn:hover{
+  border: 1.5px solid #5d2e46;
   color: #5d2e46;
+  background: transparent;
+  transition: all 0.25s ease;
 }
-
-body .dark .download-btn {
-  color: white;
-} 
-
-body .dark .download-btn:hover {
-  color: #5d2e46;
-} 
+.download-btn:hover {
+  background: #5d2e46;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(93, 46, 70, 0.28);
+}
+.download-btn.primary {
+  background: #5d2e46;
+  color: #fff;
+}
+.download-btn.primary:hover {
+  background: #6c4157;
+  border-color: #6c4157;
+}
+.dark .download-btn {
+  border-color: #f5a7c0;
+  color: #f5a7c0;
+}
+.dark .download-btn:hover {
+  background: #6c4157;
+  color: #fff;
+  border-color: #6c4157;
+}
+.dark .download-btn.primary {
+  background: #6c4157;
+  color: #fff;
+  border-color: #6c4157;
+}
+.dark .download-btn.primary:hover {
+  background: #8a5470;
+  border-color: #8a5470;
+}
 
 /* ✅ Navigation interne */
 .nav-sidebar {
@@ -1257,6 +1293,164 @@ body.light .experience h2 { color: black; }
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* =========================================================
+   🎭 SIDEBAR GAUCHE — version modernisée (même palette)
+   ========================================================= */
+.sidebar {
+  width: 230px;
+  background: linear-gradient(180deg, #ede1d8 0%, #ffffff 24%);
+  gap: 2px;
+}
+.dark .sidebar {
+  background: linear-gradient(180deg, #2a2028 0%, #1f1f1f 24%);
+  color: #fff;
+}
+
+/* Avatar cartoon sur blob dégradé animé */
+.profile-wrap {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 8px auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Blob organique qui se déforme lentement, derrière l'avatar */
+.profile-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #ede1d8 0%, #bca3ac 55%, #f5a7c0 100%);
+  border-radius: 42% 58% 55% 45% / 48% 42% 58% 52%;
+  box-shadow: 0 12px 28px rgba(93, 46, 70, 0.28);
+  animation: blobMorph 8s ease-in-out infinite;
+  z-index: 0;
+}
+.dark .profile-wrap::before {
+  background: linear-gradient(135deg, #6c4157 0%, #5d2e46 55%, #8a5470 100%);
+}
+.sidebar .profile-img {
+  position: relative;
+  z-index: 1;
+  width: 124px;
+  height: 124px;
+  object-fit: cover;
+  border: 3px solid #fff;
+  margin: 0;
+  border-radius: 42% 58% 55% 45% / 48% 42% 58% 52%;
+  animation: blobMorph 8s ease-in-out infinite;
+}
+.dark .sidebar .profile-img {
+  border-color: #1f1f1f;
+}
+@keyframes blobMorph {
+  0%, 100% { border-radius: 42% 58% 55% 45% / 48% 42% 58% 52%; }
+  50%      { border-radius: 58% 42% 45% 55% / 55% 48% 52% 42%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .profile-wrap::before { animation: none; }
+  .sidebar .profile-img { animation: none; }
+}
+
+/* Nom */
+.sidebar h1 {
+  font-size: 22px;
+  line-height: 1.2;
+  margin: 4px 0 6px;
+  color: #5d2e46;
+}
+.dark .sidebar h1 {
+  color: #f5a7c0;
+}
+
+/* Titre en pastille */
+.sidebar-title {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6c4157;
+  background: #ede1d8;
+  padding: 5px 13px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+  line-height: 1.35;
+}
+.dark .sidebar-title {
+  color: #e8d6cb;
+  background: rgba(108, 65, 87, 0.35);
+}
+
+/* Réseaux sociaux en cercles */
+.sidebar .social-links {
+  gap: 12px;
+  margin: 6px 0;
+}
+.sidebar .social-links a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(93, 46, 70, 0.12);
+  border: 1px solid rgba(188, 163, 172, 0.35);
+}
+.sidebar .social-links a:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(93, 46, 70, 0.22);
+}
+.sidebar .social-icon {
+  width: 22px;
+  height: 22px;
+}
+.dark .sidebar .social-links a {
+  background: #2a2028;
+  border-color: rgba(245, 167, 192, 0.25);
+}
+
+/* Séparateur */
+.sidebar-divider {
+  width: 65%;
+  height: 1px;
+  margin: 16px auto;
+  background: linear-gradient(90deg, transparent, #bca3ac, transparent);
+}
+.dark .sidebar-divider {
+  background: linear-gradient(90deg, transparent, #6c4157, transparent);
+}
+
+/* Contacts */
+.sidebar .contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+.sidebar .contact-info .contact-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 12.5px;
+  word-break: break-word;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.sidebar .contact-info .contact-link:hover {
+  background: #ede1d8;
+  color: #5d2e46;
+}
+.dark .sidebar .contact-info .contact-link:hover {
+  background: rgba(108, 65, 87, 0.35);
+  color: #f5a7c0;
+}
+.contact-ic {
+  font-size: 14px;
 }
 
 /* --- Badge de disponibilité --- */
