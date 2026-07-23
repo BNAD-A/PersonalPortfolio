@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { TypeAnimation } from "react-type-animation";
 import profileImage from "./assets/photoCV.jpg"; // Photo de profil
 import linkedinLight from "./assets/linkedin-light.png"; // Icône LinkedIn mode clair
 import linkedinDark from "./assets/linkedin-dark.png"; // Icône LinkedIn mode sombre
@@ -49,6 +50,8 @@ const ICONS = {
   pytorch: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
   hadoop: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hadoop/hadoop-original.svg",
   fastapi: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
+  postgresql: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+  redis: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
 };
 
 /* Composant utilitaire de rangée d’icônes */
@@ -65,11 +68,54 @@ const IconRow = ({ stack = [] }) => (
 );
 
 
+/* Compteur animé qui démarre quand il entre dans le viewport */
+const StatCounter = ({ value, suffix = "", label }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !started.current) {
+            started.current = true;
+            const duration = 1400;
+            const startTime = performance.now();
+            const tick = (now) => {
+              const p = Math.min((now - startTime) / duration, 1);
+              const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+              setCount(Math.round(eased * value));
+              if (p < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [value]);
+
+  return (
+    <div className="stat-item" ref={ref}>
+      <span className="stat-number">
+        {count}
+        {suffix}
+      </span>
+      <span className="stat-label">{label}</span>
+    </div>
+  );
+};
+
 // 🌍 Contenu multilingue (ajout des clés about.hello et about.role)
 const translations = {
   fr: {
     name: "Nada Benchaou",
-    title: "Futur Ingénieure en Santé Digitale",
+    title: "Ingénieure d'État en Santé Digitale",
     location: "Casablanca, Maroc",
     downloadCVFR: "📥 Télécharger CV (FR)",
     downloadCVEN: "📥 Télécharger CV (EN)",
@@ -85,10 +131,10 @@ const translations = {
     },
     about: {
       hello: "Bonjour 👋",
-      role: "Élève ingénieure en Santé Digitale à la recherche d’un Stage PFE 2026 en E-Santé — Allier IA et ingénierie pour transformer les pratiques de santé",
+      role: "Ingénieure d’État en Santé Digitale — J’allie intelligence artificielle et ingénierie logicielle pour concevoir des solutions numériques fiables et innovantes au service de la santé.",
       title: "👤À propos de moi",
       content:
-        "Élève ingénieure en Santé Digitale, passionnée par l’innovation et les technologies émergentes appliquées à la santé. Je maîtrise les concepts clés de l’intelligence artificielle, du machine learning et du deep learning, ainsi que le développement d’applications web et la gestion de bases de données. Curieuse, proactive et orientée résultats, je m’engage à concevoir des solutions numériques fiables et impactantes pour transformer les pratiques de santé.",
+        "Ingénieure d’État en Santé Digitale, je conçois des solutions numériques à la croisée de l’intelligence artificielle et de l’ingénierie logicielle. Spécialisée en machine learning, deep learning, vision par ordinateur et développement d’applications médicales, j’ai piloté des projets concrets — de la détection assistée par IA à l’interopérabilité hospitalière. Curieuse, rigoureuse et orientée impact, je m’engage à transformer les pratiques de santé grâce à des technologies fiables, sécurisées et centrées sur le patient.",
     },
     education: {
       title: "🎓 Éducation",
@@ -126,6 +172,19 @@ const translations = {
       title: "💼 Expérience",
       items: [
         {
+          role: "Stagiaire Ingénieure IA & Développement Logiciel",
+          org: "FIRETHUNDER SARL – Pôle Ingénierie Logicielle",
+          location: "Casablanca, Maroc",
+          period: "Février – Juin 2026",
+          bullets: [
+            "Conception et développement de FirePACSv2, une plateforme PACS intelligente de nouvelle génération destinée aux établissements de santé.",
+            "Développement d'une architecture microservices intégrant l'imagerie DICOM, l'intelligence artificielle et l'interopérabilité hospitalière.",
+            "Intégration de modèles Deep Learning, Vision-Language Model (Qwen2.5-VL) et d'un RAG médical pour assister les radiologues.",
+            "Mise en œuvre des standards HL7 v2, FHIR R4 et des mécanismes de sécurité (PHI Firewall, RBAC, audit).",
+          ],
+          tech: ["Python", "FastAPI", "React", "Docker", "PostgreSQL", "Orthanc", "Mirth Connect", "Redis", "PyTorch"],
+        },
+        {
           role: "Stagiaire Technique – IA & Systèmes d'Information",
           org: "CHU Oujda – Service Informatique & SI",
           location: "Oujda, Maroc",
@@ -152,6 +211,17 @@ const translations = {
     projects: {
       title: "🚀 Projets",
       items: [
+        {
+          title: "FirePACSv2 – PACS Intelligent, Interopérable & Assisté par IA",
+          date: "2026",
+          details: [
+            "Développement d'une plateforme PACS complète pour l'archivage, la visualisation et la gestion des examens DICOM.",
+            "Intégration d'une couche IA multimodale (radiographie, mammographie, IRM) basée sur des modèles Deep Learning spécialisés.",
+            "Conception d'un assistant clinique utilisant un RAG médical et un Vision-Language Model pour l'analyse documentaire.",
+            "Implémentation des flux HL7/FHIR, génération de comptes rendus intelligents et signature numérique.",
+          ],
+          githubLink: "https://github.com/BNAD-A",
+        },
         {
           title: "Vitalia+ — La continuité des soins, enfin connectée",
           date: "2025",
@@ -354,7 +424,7 @@ const translations = {
   },
   en: {
     name: "Nada Benchaou",
-    title: "Future Digital Health Engineer",
+    title: "State-Certified Digital Health Engineer",
     location: "Casablanca, Morocco",
     downloadCVFR: "📥 Download CV (FR)",
     downloadCVEN: "📥 Download CV (EN)",
@@ -370,10 +440,10 @@ const translations = {
     },
     about: {
       hello: "Hello 👋",
-      role: "Final-year engineering student in Digital Health- Seeking a 2026 Final-Year Internship in Digital Health — Bridging AI and Engineering to Transform Healthcare Practices",
+      role: "State-Certified Digital Health Engineer — I combine artificial intelligence and software engineering to build reliable, innovative digital solutions that advance healthcare.",
       title: "👤About me",
       content:
-        "Final-year engineering student in Digital Health, passionate about innovation and emerging technologies in healthcare. Skilled in artificial intelligence, machine learning, deep learning, web application development, and database management. Curious, proactive, and results-oriented, with a strong commitment to designing reliable and impactful digital solutions to transform healthcare practices.",
+        "State-certified Digital Health Engineer designing digital solutions at the crossroads of artificial intelligence and software engineering. Specialized in machine learning, deep learning, computer vision and medical application development, I have led concrete projects — from AI-assisted detection to hospital interoperability. Curious, rigorous and impact-driven, I am committed to transforming healthcare through reliable, secure and patient-centered technology.",
     },
     education: {
       title: "🎓 Education",
@@ -409,6 +479,19 @@ const translations = {
       title: "💼 Experience",
       items: [
         {
+          role: "AI & Software Engineering Intern",
+          org: "FIRETHUNDER SARL – Software Engineering Division",
+          location: "Casablanca, Morocco",
+          period: "February – June 2026",
+          bullets: [
+            "Design and development of FirePACSv2, a next-generation intelligent PACS platform for healthcare institutions.",
+            "Development of a microservices architecture integrating DICOM imaging, artificial intelligence and hospital interoperability.",
+            "Integration of Deep Learning models, a Vision-Language Model (Qwen2.5-VL) and a medical RAG to assist radiologists.",
+            "Implementation of HL7 v2 and FHIR R4 standards and security mechanisms (PHI Firewall, RBAC, audit).",
+          ],
+          tech: ["Python", "FastAPI", "React", "Docker", "PostgreSQL", "Orthanc", "Mirth Connect", "Redis", "PyTorch"],
+        },
+        {
           role: "Technical Intern – AI & Information Systems",
           org: "CHU Oujda – IT & IS Department",
           location: "Oujda, Morocco",
@@ -435,6 +518,17 @@ const translations = {
     projects: {
       title: "🚀 Projects",
       items: [
+        {
+          title: "FirePACSv2 – Intelligent, Interoperable & AI-Assisted PACS",
+          date: "2026",
+          details: [
+            "Development of a complete PACS platform for archiving, viewing and managing DICOM studies.",
+            "Integration of a multimodal AI layer (radiography, mammography, MRI) based on specialized Deep Learning models.",
+            "Design of a clinical assistant using a medical RAG and a Vision-Language Model for document analysis.",
+            "Implementation of HL7/FHIR flows, intelligent report generation and digital signature.",
+          ],
+          githubLink: "https://github.com/BNAD-A",
+        },
         {
           title: "Vitalia+ — Connected Continuity of Care",
           date: "2025",
@@ -642,14 +736,106 @@ const Portfolio = () => {
   const [theme, setTheme] = useState("light");
   const [language, setLanguage] = useState("fr");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("about");
+  const [showTop, setShowTop] = useState(false);
+  const [activeFilter, setActiveFilter] = useState("all");
+  const [expandedProjects, setExpandedProjects] = useState({});
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [languagesVisible, setLanguagesVisible] = useState(false);
+  const [showAllProjects, setShowAllProjects] = useState(false);
+  const PROJECTS_LIMIT = 6;
 
   // Contenu courant
   const currentContent = translations[language];
+
+  const toggleProject = (index) =>
+    setExpandedProjects((prev) => ({ ...prev, [index]: !prev[index] }));
 
   useEffect(() => {
     document.body.classList.remove("light", "dark");
     document.body.classList.add(theme);
   }, [theme]);
+
+  // 👁️ Scroll-spy : surligne la section active dans la nav de droite
+  useEffect(() => {
+    const ids = [
+      "about",
+      "resume",
+      "experience",
+      "projects",
+      "skills",
+      "soft-skills",
+      "languages",
+    ];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  // ⬆️ Bouton "retour en haut" + barre de progression de lecture
+  useEffect(() => {
+    const onScroll = () => {
+      setShowTop(window.scrollY > 400);
+      const scrollable =
+        document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(
+        scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0
+      );
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // 🎬 Apparition des sections au scroll
+  useEffect(() => {
+    const els = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.06 }
+    );
+    els.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  // 📊 Déclenche le remplissage des barres de langues à l'arrivée
+  useEffect(() => {
+    const el = document.getElementById("languages");
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setLanguagesVisible(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const scrollToTop = () =>
+    window.scrollTo({ top: 0, behavior: "smooth" });
 
   const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
   const toggleLanguage = () => setLanguage(language === "fr" ? "en" : "fr");
@@ -660,6 +846,12 @@ const Portfolio = () => {
 
   /* === Association projet -> stack d’icônes === */
   const projectStacks = {
+    "FirePACSv2 – PACS Intelligent, Interopérable & Assisté par IA": [
+      "python", "fastapi", "react", "docker", "postgresql", "pytorch", "redis"
+    ],
+    "FirePACSv2 – Intelligent, Interoperable & AI-Assisted PACS": [
+      "python", "fastapi", "react", "docker", "postgresql", "pytorch", "redis"
+    ],
     "Vitalia+ — La continuité des soins, enfin connectée": [
   "react",
   "javascript",
@@ -705,6 +897,69 @@ const Portfolio = () => {
 
   const getProjectStack = (title) => projectStacks[title] || [];
 
+  /* === Navigation (droite) === */
+  const navItems = [
+    { id: "about", icon: "fas fa-user", label: currentContent.navigation.about },
+    { id: "resume", icon: "fas fa-graduation-cap", label: currentContent.navigation.education },
+    { id: "experience", icon: "fas fa-briefcase", label: currentContent.navigation.experience },
+    { id: "projects", icon: "fas fa-folder-open", label: currentContent.navigation.projects },
+    { id: "skills", icon: "fas fa-cogs", label: currentContent.navigation.skills },
+    { id: "soft-skills", icon: "fas fa-brain", label: currentContent.navigation.softSkills },
+    { id: "languages", icon: "fas fa-language", label: currentContent.navigation.languages },
+  ];
+
+  /* === Catégorie de chaque projet (même ordre en FR et EN) === */
+  const projectCategories = [
+    "ai",      // FirePACSv2
+    "web",     // Vitalia+
+    "ai",      // FineMed-LLM
+    "bigdata", // Dispatching médical
+    "ai",      // Double Regard (rétinopathie)
+    "ai",      // Eklia (IRM cérébrale)
+    "ai",      // Skinia (peau)
+    "web",     // DonSang
+    "ai",      // Mental Health Chatbot
+    "ai",      // Breast Cancer Analysis
+    "iot",     // IoT Monitor
+    "web",     // CV Portfolio
+  ];
+
+  /* === Filtres de projets (bilingues) === */
+  const filters = [
+    { key: "all", label: language === "fr" ? "Tous" : "All" },
+    { key: "ai", label: language === "fr" ? "IA & Deep Learning" : "AI & Deep Learning" },
+    { key: "bigdata", label: "Big Data" },
+    { key: "web", label: language === "fr" ? "Web & E-santé" : "Web & E-health" },
+    { key: "iot", label: "IoT" },
+  ];
+
+  /* === Séquence du titre animé (machine à écrire) === */
+  const typedSequence =
+    language === "fr"
+      ? ["Intelligence Artificielle", 2000, "Deep Learning", 2000, "Santé Digitale", 2000, "Machine Learning", 2000, "Vision par Ordinateur", 2000]
+      : ["Artificial Intelligence", 2000, "Deep Learning", 2000, "Digital Health", 2000, "Machine Learning", 2000, "Computer Vision", 2000];
+
+  /* === Chiffres clés (bandeau animé sous le hero) === */
+  const stats = [
+    {
+      value: currentContent.projects.items.length,
+      label: language === "fr" ? "Projets" : "Projects",
+    },
+    {
+      value: 20,
+      suffix: "+",
+      label: language === "fr" ? "Technologies" : "Technologies",
+    },
+    {
+      value: currentContent.experience.items.length,
+      label: language === "fr" ? "Expériences" : "Experiences",
+    },
+    {
+      value: currentContent.languageSkills.items.length,
+      label: language === "fr" ? "Langues" : "Languages",
+    },
+  ];
+
   /* === Mapping libre des badges “tech” d’une expérience -> icônes === */
   const mapTechToIconKey = (t) => {
     const key = (t || "").toLowerCase().replace(/[^\w]/g, "");
@@ -717,12 +972,19 @@ const Portfolio = () => {
     if (key === "python") return "python";
     if (key.includes("git") && !key.includes("github")) return "git";
     if (key.includes("github")) return "github";
+    if (key.includes("pytorch")) return "pytorch";
+    if (key.includes("fastapi")) return "fastapi";
+    if (key.includes("postgres")) return "postgresql";
+    if (key.includes("redis")) return "redis";
     if (["html","css","javascript","mysql","firebase","docker","aws","arduino","raspberrypi","react","vercel"].includes(key)) return key;
     return null;
   };
 
   return (
     <div className={`container ${theme}`}>
+      {/* 📖 Barre de progression de lecture */}
+      <div className="reading-progress" style={{ width: `${scrollProgress}%` }} />
+
       {/* 🌗 Bouton mode sombre/clair */}
       <button className="toggle-theme" onClick={toggleTheme}>
         {theme === "light" ? "🌙" : "☀️"}
@@ -791,46 +1053,18 @@ const Portfolio = () => {
       {/* 📌 Barre latérale droite */}
       <div className={`right-sidebar ${isSidebarOpen ? "hidden" : ""}`}>
         <ul>
-          <li>
-            <a href="#about">
-              <i className="fas fa-user"></i> {currentContent.navigation.about}
-            </a>
-          </li>
-          <li>
-            <a href="#resume">
-              <i className="fas fa-graduation-cap"></i>{" "}
-              {currentContent.navigation.education}
-            </a>
-          </li>
-          <li>
-            <a href="#experience">
-              <i className="fas fa-briefcase"></i>{" "}
-              {currentContent.navigation.experience}
-            </a>
-          </li>
-          <li>
-            <a href="#projects">
-              <i className="fas fa-folder-open"></i>{" "}
-              {currentContent.navigation.projects}
-            </a>
-          </li>
-          <li>
-            <a href="#skills">
-              <i className="fas fa-cogs"></i> {currentContent.navigation.skills}
-            </a>
-          </li>
-          <li>
-            <a href="#soft-skills">
-              <i className="fas fa-brain"></i>{" "}
-              {currentContent.navigation.softSkills}
-            </a>
-          </li>
-          <li>
-            <a href="#languages">
-              <i className="fas fa-language"></i>{" "}
-              {currentContent.navigation.languages}
-            </a>
-          </li>
+          {navItems.map((item) => (
+            <li key={item.id}>
+              <a
+                href={`#${item.id}`}
+                className={activeSection === item.id ? "active" : ""}
+                title={item.label}
+                aria-current={activeSection === item.id ? "true" : undefined}
+              >
+                <i className={item.icon}></i> {item.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
@@ -838,6 +1072,12 @@ const Portfolio = () => {
       <div className="main-content">
         {/* 📌 Section À propos */}
         <section id="about" className="about-section">
+          <div className="hero-blobs" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
           <div className="about-hello">{currentContent.about.hello}</div>
 
           <h1 className="about-name">
@@ -846,13 +1086,45 @@ const Portfolio = () => {
             {lastName}
           </h1>
 
+          <div className="about-typed">
+            <span className="typed-prefix">
+              {language === "fr" ? "Spécialisée en " : "Specialized in "}
+            </span>
+            <TypeAnimation
+              key={language}
+              sequence={typedSequence}
+              wrapper="span"
+              speed={50}
+              className="typed-text"
+              repeat={Infinity}
+              cursor={true}
+            />
+          </div>
+
           <h2 className="about-role">{currentContent.about.role}</h2>
 
           <p className="about-intro">{currentContent.about.content}</p>
+
+          {/* 📊 Bandeau de chiffres clés animés */}
+          <div className="stats-band">
+            {stats.map((s, i) => (
+              <StatCounter
+                key={`${language}-${i}`}
+                value={s.value}
+                suffix={s.suffix}
+                label={s.label}
+              />
+            ))}
+          </div>
+
+          {/* ⌄ Indicateur de défilement */}
+          <a href="#resume" className="scroll-down" aria-label="Scroll">
+            <span></span>
+          </a>
         </section>
 
         {/* Éducation */}
-        <section id="resume" className="education">
+        <section id="resume" className="education reveal">
           <h2>{currentContent.education.title}</h2>
           <div className="education-container">
             {currentContent.education.items.map((edu, index) => (
@@ -866,7 +1138,7 @@ const Portfolio = () => {
         </section>
 
         {/* Expérience */}
-        <section id="experience" className="experience">
+        <section id="experience" className="experience reveal">
           <h2>{currentContent.experience.title}</h2>
           <div className="experience-timeline">
             {currentContent.experience.items.map((exp, index) => (
@@ -910,10 +1182,37 @@ const Portfolio = () => {
         </section>
 
         {/* Projets */}
-        <section id="projects" className="projects">
+        <section id="projects" className="projects reveal">
           <h2>{currentContent.projects.title}</h2>
+
+          <div className="project-filters">
+            {filters.map((f) => (
+              <button
+                key={f.key}
+                className={`filter-btn ${activeFilter === f.key ? "active" : ""}`}
+                onClick={() => setActiveFilter(f.key)}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+
+          {(() => {
+            const filteredProjects = currentContent.projects.items
+              .map((proj, index) => ({ proj, index }))
+              .filter(
+                ({ index }) =>
+                  activeFilter === "all" ||
+                  projectCategories[index] === activeFilter
+              );
+            const visibleProjects = showAllProjects
+              ? filteredProjects
+              : filteredProjects.slice(0, PROJECTS_LIMIT);
+            const hiddenCount = filteredProjects.length - PROJECTS_LIMIT;
+            return (
+          <>
           <div className="projects-container">
-            {currentContent.projects.items.map((proj, index) => (
+            {visibleProjects.map(({ proj, index }) => (
               <div className="project-card" key={index}>
                 <div className="project-header">
                   <h3>{proj.title}</h3>
@@ -932,21 +1231,60 @@ const Portfolio = () => {
                 <p>
                   <strong>{proj.date}</strong>
                 </p>
-                <ul>
-                  {proj.details.map((detail, i) => (
+                <ul className="project-details">
+                  {(expandedProjects[index]
+                    ? proj.details
+                    : proj.details.slice(0, 1)
+                  ).map((detail, i) => (
                     <li key={i}>{detail}</li>
                   ))}
                 </ul>
+
+                {proj.details.length > 1 && (
+                  <button
+                    className="read-more-btn"
+                    onClick={() => toggleProject(index)}
+                    aria-expanded={!!expandedProjects[index]}
+                  >
+                    {expandedProjects[index]
+                      ? language === "fr"
+                        ? "Lire moins ▲"
+                        : "Read less ▲"
+                      : language === "fr"
+                      ? "Lire plus ▼"
+                      : "Read more ▼"}
+                  </button>
+                )}
 
                 {/* 🔥 Rangée d’icônes associée au projet */}
                 <IconRow stack={getProjectStack(proj.title)} />
               </div>
             ))}
           </div>
+
+          {hiddenCount > 0 && (
+            <div className="see-all-wrap">
+              <button
+                className="see-all-btn"
+                onClick={() => setShowAllProjects((v) => !v)}
+              >
+                {showAllProjects
+                  ? language === "fr"
+                    ? "Voir moins ▲"
+                    : "Show less ▲"
+                  : language === "fr"
+                  ? `Voir tout (${hiddenCount} de plus) ▼`
+                  : `Show all (${hiddenCount} more) ▼`}
+              </button>
+            </div>
+          )}
+          </>
+            );
+          })()}
         </section>
 
         {/* Hard Skills */}
-        <section id="skills" className="skills">
+        <section id="skills" className="skills reveal">
           <h2>{currentContent.skills.title}</h2>
           <div className="skills-container">
             {currentContent.skills.items.map((skill, index) => (
@@ -961,7 +1299,7 @@ const Portfolio = () => {
         </section>
 
         {/* Soft Skills */}
-        <section id="soft-skills" className="soft-skills-section">
+        <section id="soft-skills" className="soft-skills-section reveal">
           <h2>{currentContent.softSkills.title}</h2>
           <div className="soft-skills-container">
             {currentContent.softSkills.items.map((skill, index) => (
@@ -975,7 +1313,7 @@ const Portfolio = () => {
         </section>
 
         {/* Langues */}
-        <section id="languages" className="languages">
+        <section id="languages" className="languages reveal">
           <h2>{currentContent.languageSkills.title}</h2>
           <div className="languages-container">
             {currentContent.languageSkills.items.map((lang, index) => (
@@ -983,13 +1321,25 @@ const Portfolio = () => {
                 <h3>{lang.name}</h3>
                 <p>{lang.level}</p>
                 <div className="progress-bar">
-                  <div className="progress" style={{ width: lang.width }}></div>
+                  <div
+                    className="progress"
+                    style={{ width: languagesVisible ? lang.width : "0%" }}
+                  ></div>
                 </div>
               </div>
             ))}
           </div>
         </section>
       </div>
+
+      {/* ⬆️ Bouton retour en haut */}
+      <button
+        className={`back-to-top ${showTop ? "visible" : ""}`}
+        onClick={scrollToTop}
+        aria-label={language === "fr" ? "Retour en haut" : "Back to top"}
+      >
+        ↑
+      </button>
     </div>
   );
 };

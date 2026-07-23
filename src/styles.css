@@ -1028,3 +1028,395 @@ body.light .experience h2 { color: black; }
     z-index: 1200;
   }
 }
+
+/* =========================================================
+   ✨ NOUVEAUTÉS INTERACTIVES (même palette)
+   ========================================================= */
+
+/* --- 1. Titre animé (machine à écrire) dans le hero --- */
+.about-typed {
+  font-family: "Delius Swash Caps", serif;
+  font-size: 22px;
+  margin: 6px 0 4px;
+  min-height: 30px;
+}
+.typed-prefix {
+  color: #6c4157;
+}
+.typed-text {
+  color: #bca3ac;
+  font-weight: 600;
+}
+.dark .typed-prefix { color: #e0e0e0; }
+.dark .typed-text { color: #f5a7c0; }
+
+@media (max-width: 768px) {
+  .about-typed { font-size: 18px; }
+}
+
+/* --- 2. Scroll-spy : section active dans la barre de droite --- */
+.right-sidebar ul li a.active {
+  background: #6c4157;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(93, 46, 70, 0.35);
+}
+.right-sidebar ul li a.active i {
+  color: #fff;
+}
+.dark .right-sidebar ul li a.active {
+  background: #5d2e46;
+}
+
+/* --- 3. Bouton retour en haut --- */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 50%;
+  background: #5d2e46;
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 14px rgba(93, 46, 70, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease;
+}
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.back-to-top:hover {
+  background: #6c4157;
+  transform: translateY(-3px) scale(1.05);
+}
+.dark .back-to-top {
+  background: #6c4157;
+}
+.dark .back-to-top:hover {
+  background: #8a5470;
+}
+
+/* --- 4. Filtres de projets --- */
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto 25px;
+}
+.filter-btn {
+  font-family: "Roboto Mono", monospace;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid #bca3ac;
+  background: #ede1d8;
+  color: #5d2e46;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.filter-btn:hover {
+  background: #e8d6cb;
+  transform: translateY(-2px);
+}
+.filter-btn.active {
+  background: #5d2e46;
+  color: #fff;
+  border-color: #5d2e46;
+  box-shadow: 0 4px 12px rgba(93, 46, 70, 0.3);
+}
+.dark .filter-btn {
+  background: rgba(108, 65, 87, 0.25);
+  color: #e8d6cb;
+  border-color: #6c4157;
+}
+.dark .filter-btn:hover {
+  background: rgba(108, 65, 87, 0.4);
+}
+.dark .filter-btn.active {
+  background: #6c4157;
+  color: #fff;
+  border-color: #6c4157;
+}
+
+/* Apparition en fondu des cartes lors du filtrage */
+.projects-container .project-card {
+  animation: cardFadeIn 0.4s ease both;
+}
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --- 5. Lien "Lire plus / Lire moins" des projets (discret) --- */
+.read-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 2px 0;
+  padding: 2px 0;
+  font-family: "Roboto Mono", monospace;
+  font-size: 12px;
+  font-weight: 500;
+  color: #bca3ac;
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+.read-more-btn:hover {
+  color: #5d2e46;
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.dark .read-more-btn {
+  color: #9e8189;
+}
+.dark .read-more-btn:hover {
+  color: #f5a7c0;
+}
+
+/* Bouton "Voir tout / Voir moins" des projets */
+.see-all-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 26px;
+}
+.see-all-btn {
+  font-family: "Roboto Mono", monospace;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: 1.5px solid #5d2e46;
+  background: transparent;
+  color: #5d2e46;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.see-all-btn:hover {
+  background: #5d2e46;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(93, 46, 70, 0.28);
+}
+.dark .see-all-btn {
+  border-color: #f5a7c0;
+  color: #f5a7c0;
+}
+.dark .see-all-btn:hover {
+  background: #6c4157;
+  color: #fff;
+  border-color: #6c4157;
+}
+
+/* Détails des projets qui apparaissent en douceur */
+.project-details li {
+  animation: detailFadeIn 0.3s ease both;
+}
+@keyframes detailFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --- 6. Barre de progression de lecture (haut de page) --- */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, #ede1d8, #bca3ac, #5d2e46);
+  z-index: 1500;
+  transition: width 0.1s linear;
+}
+.dark .reading-progress {
+  background: linear-gradient(90deg, #6c4157, #bca3ac, #f5a7c0);
+}
+
+/* --- 7. Apparition des sections au scroll --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* --- Badge de disponibilité --- */
+.availability-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  margin-bottom: 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2e7d4f;
+  background: rgba(46, 125, 79, 0.1);
+  border: 1px solid rgba(46, 125, 79, 0.3);
+}
+.availability-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #2ecc71;
+  box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.6);
+  animation: availPulse 1.8s ease-out infinite;
+}
+@keyframes availPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.6); }
+  70%  { box-shadow: 0 0 0 8px rgba(46, 204, 113, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+}
+.dark .availability-badge {
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.12);
+  border-color: rgba(74, 222, 128, 0.3);
+}
+@media (prefers-reduced-motion: reduce) {
+  .availability-dot { animation: none; }
+}
+
+/* --- 8. Fond dégradé animé (blobs) derrière le hero --- */
+.about-section {
+  position: relative;
+  overflow: hidden;
+}
+.hero-blobs {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+.hero-blobs span {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.5;
+  animation: blobFloat 14s ease-in-out infinite;
+}
+.hero-blobs span:nth-child(1) {
+  width: 260px; height: 260px;
+  top: -40px; left: 8%;
+  background: #bca3ac;
+  animation-delay: 0s;
+}
+.hero-blobs span:nth-child(2) {
+  width: 220px; height: 220px;
+  top: 30px; right: 6%;
+  background: #ede1d8;
+  animation-delay: -4s;
+}
+.hero-blobs span:nth-child(3) {
+  width: 200px; height: 200px;
+  bottom: -30px; left: 40%;
+  background: #6c4157;
+  opacity: 0.35;
+  animation-delay: -8s;
+}
+.dark .hero-blobs span:nth-child(1) { background: #6c4157; opacity: 0.4; }
+.dark .hero-blobs span:nth-child(2) { background: #5d2e46; opacity: 0.4; }
+.dark .hero-blobs span:nth-child(3) { background: #f5a7c0; opacity: 0.22; }
+@keyframes blobFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(20px, -25px) scale(1.08); }
+  66%      { transform: translate(-15px, 15px) scale(0.95); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-blobs span { animation: none; }
+}
+
+/* --- 9. Bandeau de chiffres clés animés (discret) --- */
+.stats-band {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 14px 26px;
+  margin: 22px auto 4px;
+}
+.stat-item {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 0;
+  position: relative;
+}
+/* Fin séparateur entre les stats */
+.stat-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 14px;
+  background: rgba(188, 163, 172, 0.5);
+}
+.stat-number {
+  font-family: "Delius Swash Caps", serif;
+  font-size: 20px;
+  line-height: 1;
+  color: #6c4157;
+}
+.stat-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  color: #bca3ac;
+  text-transform: uppercase;
+}
+.dark .stat-item:not(:last-child)::after { background: rgba(245, 167, 192, 0.3); }
+.dark .stat-number { color: #f5a7c0; }
+.dark .stat-label { color: #9e8189; }
+
+/* --- 10. Indicateur de défilement (hero) --- */
+.scroll-down {
+  display: block;
+  width: 26px;
+  height: 42px;
+  margin: 26px auto 0;
+  border: 2px solid #bca3ac;
+  border-radius: 20px;
+  position: relative;
+}
+.scroll-down span {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  margin-left: -2.5px;
+  background: #5d2e46;
+  border-radius: 50%;
+  animation: scrollDot 1.6s ease-in-out infinite;
+}
+.dark .scroll-down { border-color: #6c4157; }
+.dark .scroll-down span { background: #f5a7c0; }
+@keyframes scrollDot {
+  0%   { opacity: 0; transform: translateY(0); }
+  40%  { opacity: 1; }
+  80%  { opacity: 0; transform: translateY(16px); }
+  100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-down span { animation: none; }
+}
